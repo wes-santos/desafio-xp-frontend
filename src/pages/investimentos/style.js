@@ -37,4 +37,8 @@ background-color: black;
   font-weight: 600;
   padding: 8px 0;
   width: 100%;
+
+  &:active {
+    background-color: #363636;
+  }
 `;

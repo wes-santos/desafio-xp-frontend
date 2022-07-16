@@ -9,7 +9,7 @@ export const Title = styled.h2`
   margin: 10px 0;
 `;
 
-export const BuyButton = styled.button`
+export const Buy = styled.button`
   background-color: rgb(39, 108, 219);
   border: none;
   border-radius: 6px 0 0 6px;
@@ -18,7 +18,7 @@ export const BuyButton = styled.button`
   padding: 8px;
 `;
 
-export const SellButton = styled.button`
+export const Sell = styled.button`
   background-color: green;
   border: none;
   border-radius: 6px 0 0 6px;
@@ -52,6 +52,10 @@ export const SecondaryButton = styled.button`
   font-weight: 600;
   padding: 8px 0;
   width: 45%;
+
+  &:active {
+    background-color: #363636;
+  }
 `;
 
 export const ButtonsContainer = styled.div`

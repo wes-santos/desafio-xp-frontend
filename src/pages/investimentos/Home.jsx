@@ -20,10 +20,12 @@ export default function Home() {
                 <col />
               </colgroup>
               <thead>
-                <th>Ação</th>
-                <th>Qtde</th>
-                <th>Valor (R$)</th>
-                <th>Negociar</th>
+                <tr>
+                  <th>Ação</th>
+                  <th>Qtde</th>
+                  <th>Valor (R$)</th>
+                  <th>Negociar</th>
+                </tr>
               </thead>
               <tbody>
                 <tr>
@@ -57,10 +59,12 @@ export default function Home() {
                 <col />
               </colgroup>
               <thead>
-                <th>Ação</th>
-                <th>Qtde</th>
-                <th>Valor (R$)</th>
-                <th>Negociar</th>
+                <tr>
+                  <th>Ação</th>
+                  <th>Qtde</th>
+                  <th>Valor (R$)</th>
+                  <th>Negociar</th>
+                </tr>
               </thead>
               <tbody>
                 <tr>

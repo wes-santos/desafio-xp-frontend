@@ -19,9 +19,11 @@ export default function Negociar() {
                 <col className="black" />
               </colgroup>
               <thead>
-                <th>Ação</th>
-                <th>Qtde</th>
-                <th>Valor (R$)</th>
+                <tr>
+                  <th>Ação</th>
+                  <th>Qtde</th>
+                  <th>Valor (R$)</th>
+                </tr>
               </thead>
               <tbody>
                 <tr>
@@ -35,16 +37,16 @@ export default function Negociar() {
 
           <C.sellAndBuyContainer>
             <div>
-              <C.BuyButton type="button">
+              <C.Buy type="button">
                 Comprar
-              </C.BuyButton>
+              </C.Buy>
               <input type="number" placeholder="Informe o Valor" />
             </div>
 
             <div>
-              <C.SellButton type="button">
+              <C.Sell type="button">
                 Vender
-              </C.SellButton>
+              </C.Sell>
               <input type="number" placeholder="Informe o Valor" />
             </div>
           </C.sellAndBuyContainer>

@@ -7,12 +7,6 @@ export const PrimaryButton = styled.button`
   margin-bottom: 40px;
   padding: 8px 0;
   width: 45%;
-
-  &:focus {
-    outline: none;
-    background-color: green;
-    color: white;
-  }
 `;
 
 export const SecondaryButton = styled.button`
@@ -23,6 +17,10 @@ export const SecondaryButton = styled.button`
   font-weight: 600;
   padding: 8px 0;
   width: 45%;
+
+  &:active {
+    background-color: #363636;
+  }
 `;
 
 export const Section = styled.section`
