@@ -30,6 +30,11 @@ export const Wrapper = styled.div`
 `;
 
 export const Button = styled.button`
-  padding: 6px;
+background-color: black;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  padding: 8px 0;
   width: 100%;
 `;

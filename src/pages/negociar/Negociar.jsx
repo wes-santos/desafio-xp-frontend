@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+// import './negociar.css';
 
 export default function Negociar() {
   return (
