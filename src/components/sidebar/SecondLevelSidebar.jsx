@@ -7,9 +7,10 @@ import arrow from '../../shared/images/arrow.svg';
 import backArrow from '../../shared/images/back-arrow.svg';
 
 // eslint-disable-next-line react/prop-types
-export default function SecondSidebar({ active }) {
+export default function SecondSidebar(active, setSidebar) {
   const closeSidebar = () => {
     active(false);
+    setSidebar((prev) => !prev);
   };
 
   return (
@@ -24,15 +25,17 @@ export default function SecondSidebar({ active }) {
         <ul>
           <li>
             <span>
-              <button type="button" onClick={closeSidebar}>
+              <button type="button" onClick={() => setSidebar((prev) => !prev)}>
                 <img src={backArrow} alt="yellow arrow" />
                 Voltar
               </button>
             </span>
           </li>
           <li>
-            <Link to="/investimentos">Ações</Link>
-            <img src={arrow} alt="yellow arrow" />
+            <button type="button" onClick={closeSidebar}>
+              <Link to="/investimentos/acoes">Ações</Link>
+              <img src={arrow} alt="yellow arrow" />
+            </button>
           </li>
           <li>
             <Link to="/">Sair</Link>

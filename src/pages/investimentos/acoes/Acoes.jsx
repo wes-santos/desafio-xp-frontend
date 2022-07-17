@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as C from './style';
-import Header from '../../components/header/Header';
+import Header from '../../../components/header/Header';
 import './style.css';
 
-export default function Home() {
+export default function Acoes() {
   return (
     <C.Wrapper>
       {Header()}

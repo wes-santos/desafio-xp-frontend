@@ -16,7 +16,7 @@ export default function Login() {
         <p>Senha</p>
         <input id="passwordInput" type="password" />
       </C.Label>
-      <Link to="/investimentos">
+      <Link to="/home">
         <C.Button type="button">Acessar</C.Button>
       </Link>
     </C.Form>

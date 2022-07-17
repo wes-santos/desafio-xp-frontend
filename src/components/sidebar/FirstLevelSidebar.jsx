@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Container from './style';
 import closeIcon from './close-icon.svg';
 import xpLogo from '../../shared/images/logo-branco-notext.svg';
 import arrow from '../../shared/images/arrow.svg';
-import SecondSidebar from './SecondSidebar';
+import SecondSidebar from './SecondLevelSidebar';
 
 // eslint-disable-next-line react/prop-types
 export default function Sidebar({ active }) {
@@ -18,13 +19,19 @@ export default function Sidebar({ active }) {
   return (
     <Container sidebar={active}>
       <div>
-        <img src={xpLogo} alt="logo xp" />
+        <Link to="/home"><img src={xpLogo} alt="logo xp" /></Link>
         <button type="button" onClick={closeSidebar}>
           <img src={closeIcon} alt="fechar" />
         </button>
       </div>
       <nav>
         <ul>
+          <li>
+            <button type="button" onClick={closeSidebar}>
+              <Link to="/home">Página Inicial</Link>
+              <img src={arrow} alt="yellow arrow" />
+            </button>
+          </li>
           <li>
             <button type="button" onClick={handleSidebar}>
               Investimentos
@@ -37,7 +44,7 @@ export default function Sidebar({ active }) {
           </li>
         </ul>
       </nav>
-      {sidebar && <SecondSidebar active={setSidebar} />}
+      {sidebar && SecondSidebar(active, setSidebar)}
     </Container>
   );
 }

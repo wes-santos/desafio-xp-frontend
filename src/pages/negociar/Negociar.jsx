@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/header/Header';
-import '../investimentos/style.css';
+import '../investimentos/acoes/style.css';
 import * as C from './style';
 
 export default function Negociar() {

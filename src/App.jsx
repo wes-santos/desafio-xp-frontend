@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/login/Login';
-import Home from './pages/investimentos/Home';
+import Home from './pages/home/Home';
 import Negociar from './pages/negociar/Negociar';
 import Conta from './pages/conta/Conta';
+import Acoes from './pages/investimentos/acoes/Acoes';
 
 function App() {
   return (
@@ -15,8 +16,12 @@ function App() {
           element={Login()}
         />
         <Route
-          path="/investimentos"
+          path="/home"
           element={Home()}
+        />
+        <Route
+          path="/investimentos/acoes"
+          element={Acoes()}
         />
         <Route
           path="/negociar"

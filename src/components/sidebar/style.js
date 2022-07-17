@@ -8,7 +8,7 @@ const Container = styled.section`
   right: 0px;
   width: 100%;
   right: ${(props) => (props.sidebar ? '0' : '-100%')};
-  animation: showSidebar .3s;
+  animation: showSidebar .4s;
 
   @keyframes showSidebar {
     from {
@@ -61,6 +61,7 @@ const Container = styled.section`
       color: white;
       display: flex;
       font-size: 16px;
+      height: 19.2px;
       justify-content: space-between;
       text-transform: uppercase;
       width: 100%;
@@ -68,12 +69,12 @@ const Container = styled.section`
 
     li span button {
       color: #ffc709;
-      height: 19.2px;
     }
 
     li a {
       color: white;
       font-size: 16px;
+      text-align: left;
       text-transform: uppercase;
       text-decoration: none;
     }
