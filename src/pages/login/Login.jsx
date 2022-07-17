@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as C from './style';
 import './style.css';
-import xpLogo from './xp_logo_home.png';
+import xpLogo from '../../shared/images/xp_logo_home.png';
 
 export default function Login() {
   return (
