@@ -1,0 +1,25 @@
+.grey {
+  background-color: #58595b;
+}
+
+.black {
+  background-color: #222;
+}
+
+.yellow {
+  /* background-color: #ffc709; */
+  background-color: white;
+}
+
+.green {
+  color: green;
+}
+
+.white-color {
+  color: white;
+}
+
+.asset-subtitle {
+  color: grey;
+  font-size: 13px;
+}

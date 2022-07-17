@@ -9,18 +9,7 @@ export const Container = styled.div`
   width: 100%;
 
   & section {
-    margin: 30px 0;
-
-    table {
-      text-align: center;
-      width: 100%;
-
-      th {
-        background-color: grey;
-        padding: 4px;
-        font-size: 12px;
-      }
-    }
+    margin: 30px 0; 
   }
 `;
 
@@ -30,7 +19,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Button = styled.button`
-background-color: black;
+  background-color: black;
   border: none;
   border-radius: 6px;
   color: white;

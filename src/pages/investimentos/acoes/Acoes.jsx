@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as C from './style';
 import Header from '../../../components/header/Header';
-import './style.css';
+import Table from '../../../components/table/Table';
+import { minhasAcoes, todasAcoes } from '../../../data';
 
 export default function Acoes() {
   return (
@@ -12,111 +14,11 @@ export default function Acoes() {
         <div>
           <section>
             <h2>Minhas ações</h2>
-            <table>
-              <colgroup>
-                <col style={{ backgroundColor: 'yellow' }} />
-                <col className="grey" />
-                <col className="black" />
-                <col />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>Ação</th>
-                  <th>Qtde</th>
-                  <th>Valor (R$)</th>
-                  <th>Negociar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>AZUL4</td>
-                  <td className="white-color">100</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-                <tr>
-                  <td>PETR4</td>
-                  <td className="white-color">100</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-                <tr>
-                  <td>VALE4</td>
-                  <td className="white-color">100</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-              </tbody>
-            </table>
+            <Table acoes={minhasAcoes} />
           </section>
           <section>
             <h2>Disponíveis para investir</h2>
-            <table>
-              <colgroup>
-                <col style={{ backgroundColor: 'yellow' }} />
-                <col className="grey" />
-                <col className="black" />
-                <col />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>Ação</th>
-                  <th>Qtde</th>
-                  <th>Valor (R$)</th>
-                  <th>Negociar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>XPTO</td>
-                  <td className="white-color">1</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-                <tr>
-                  <td>XPTO</td>
-                  <td className="white-color">1</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-                <tr>
-                  <td>XPTO</td>
-                  <td className="white-color">1</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-                <tr>
-                  <td>XPTO</td>
-                  <td className="white-color">1</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-                <tr>
-                  <td>XPTO</td>
-                  <td className="white-color">1</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-                <tr>
-                  <td>XPTO</td>
-                  <td className="white-color">1</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-                <tr>
-                  <td>XPTO</td>
-                  <td className="white-color">1</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-                <tr>
-                  <td>XPTO</td>
-                  <td className="white-color">1</td>
-                  <td className="white-color">350,00</td>
-                  <td><Link to="/negociar">C/V</Link></td>
-                </tr>
-              </tbody>
-            </table>
+            <Table acoes={todasAcoes} />
           </section>
         </div>
         <Link to="/conta">

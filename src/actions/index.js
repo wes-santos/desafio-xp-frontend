@@ -7,3 +7,8 @@ export const subtractMoney = (value) => ({
   type: 'SUBTRACT_MONEY',
   payload: value,
 });
+
+export const saveAsset = (value) => ({
+  type: 'SAVE_ASSET',
+  payload: value,
+});

@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   balance: 999.99,
+  clickedAsset: 'PETR4',
 };
 
 // eslint-disable-next-line default-param-last
@@ -13,6 +14,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
       ...state,
       balance: (parseFloat(state.balance) - parseFloat(action.payload)).toFixed(2),
     };
+    case 'SAVE_ASSET': return { ...state, clickedAsset: action.payload };
     default: return state;
   }
 };

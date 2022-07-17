@@ -73,26 +73,6 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
-export const TableContainer = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-  justify-content: space-around;
-  width: 100%;
-
-  table {
-    text-align: center;
-    width: 100%;
-
-    th {
-      background-color: grey;
-      padding: 4px;
-      font-size: 12px;
-    }
-  }
-`;
-
 export const MainContainer = styled.div`
   padding: 15px;
 `;

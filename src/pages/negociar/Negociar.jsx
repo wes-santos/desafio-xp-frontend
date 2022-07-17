@@ -1,39 +1,25 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Header from '../../components/header/Header';
-import '../investimentos/acoes/style.css';
+// import '../investimentos/acoes/style.css';
 import * as C from './style';
+import TradingTable from '../../components/TradingTable/TradingTable';
+import { todasAcoes } from '../../data';
 
 export default function Negociar() {
+  const { clickedAsset } = useSelector((state) => state.user);
+  const asset = todasAcoes.find((e) => e.CodAtivo === clickedAsset);
+
   return (
     <C.Section>
       {Header()}
       <C.PageWrapper>
         <C.MainContainer>
           <C.Title>Comprar/Vender Ação</C.Title>
-          <C.TableContainer>
-            <table>
-              <colgroup>
-                <col style={{ backgroundColor: 'yellow' }} />
-                <col className="grey" />
-                <col className="black" />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>Ação</th>
-                  <th>Qtde</th>
-                  <th>Valor (R$)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>AZUL4</td>
-                  <td className="white-color">100</td>
-                  <td className="white-color">350,00</td>
-                </tr>
-              </tbody>
-            </table>
-          </C.TableContainer>
+
+          <TradingTable acoes={asset} />
 
           <C.sellAndBuyContainer>
             <div>
@@ -53,7 +39,7 @@ export default function Negociar() {
         </C.MainContainer>
 
         <C.ButtonsContainer>
-          <Link to="/investimentos">
+          <Link to="/investimentos/acoes">
             <C.SecondaryButton type="button">
               Voltar
             </C.SecondaryButton>
