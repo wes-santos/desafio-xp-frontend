@@ -3,7 +3,7 @@ import React, { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as C from './style';
-import { saveAsset } from '../../actions';
+import { saveClickedAsset } from '../../actions';
 import './style.css';
 
 const owned = 0;
@@ -13,7 +13,7 @@ export default function Table({ acoes }) {
   const history = useNavigate();
 
   const handleClick = (asset) => {
-    dispatch(saveAsset(asset));
+    dispatch(saveClickedAsset(asset));
     return history('/negociar');
   };
 

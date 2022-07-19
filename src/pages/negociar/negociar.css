@@ -1,3 +1,8 @@
-a {
-  width: 80%;
+.subButton {
+  margin-right: -20px;
+  z-index: 0;
+}
+
+.addButton {
+  margin-left: -20px;
 }

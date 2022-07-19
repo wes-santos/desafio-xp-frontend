@@ -9,41 +9,6 @@ export const Title = styled.h2`
   margin: 10px 0;
 `;
 
-export const Buy = styled.button`
-  background-color: rgb(39, 108, 219);
-  border: none;
-  border-radius: 6px 0 0 6px;
-  color: white;
-  font-weight: 600;
-  padding: 8px;
-`;
-
-export const Sell = styled.button`
-  background-color: green;
-  border: none;
-  border-radius: 6px 0 0 6px;
-  color: white;
-  font-weight: 600;
-  padding: 8px;
-`;
-
-export const sellAndBuyContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  button {
-    width: 30%;
-  }
-
-  input {
-    border: 1px solid rgb(200, 200, 200);
-    border-radius: 0 6px 6px 0;
-    padding: 7px;
-    width: 70%;
-  }
-`;
-
 export const SecondaryButton = styled.button`
   background-color: black;
   border: none;
@@ -75,6 +40,17 @@ export const ButtonsContainer = styled.div`
 
 export const MainContainer = styled.div`
   padding: 15px;
+
+  form label {
+    font-size: 13px;
+    padding: 1px;
+  }
+
+  form input {
+    margin-top: 2px;
+    padding: 4px 6px;
+    width: 100%;
+  }
 `;
 
 export const PageWrapper = styled.div`
@@ -82,4 +58,45 @@ export const PageWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 85%;
+`;
+
+export const BuyAndSellContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  button {
+    border: none;
+    font-weight: bold;
+    padding: 6px 8px;
+    width: 47%;
+  }
+`;
+
+export const QuantityLabel = styled.label`
+  div {
+    display: flex;
+  }
+
+  input {
+    margin-top: 2px;
+    padding: 4px 6px;
+    text-align: center;
+    width: 100%;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    width: 20px;
+  }
+`;
+
+export const H3 = styled.h3`
+  color: #939393;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: -8px;
 `;

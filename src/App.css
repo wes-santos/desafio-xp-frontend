@@ -7,7 +7,22 @@
   padding: 0;
 }
 
-/* main {
-  height: 100vh;
-  width: 100vw;
-} */
+.yellow {
+  background-color: #ffc709;
+}
+
+.grey {
+  background-color: #58595b;
+}
+
+.light-grey {
+  background-color: #939393;
+}
+
+.light-grey:active {
+  background-color: #6f6f6f;
+}
+
+.yellow:active {
+  background-color: rgb(224, 173, 0);
+}

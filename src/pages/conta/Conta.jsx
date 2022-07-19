@@ -61,7 +61,7 @@ export default function Conta() {
         />
       </C.MainContainer>
       <C.ButtonsContainer>
-        <Link to="/investimentos">
+        <Link to="/investimentos/acoes">
           <C.SecondaryButton type="button">
             Voltar
           </C.SecondaryButton>

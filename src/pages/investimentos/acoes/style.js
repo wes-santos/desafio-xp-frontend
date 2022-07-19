@@ -8,6 +8,13 @@ export const Container = styled.div`
   justify-content: space-around;
   width: 100%;
 
+  h2 {
+    font-size: 22px;
+    text-transform: uppercase;
+    border-bottom: solid 3px #ffc709;
+    margin-bottom: 10px;
+  }
+
   & section {
     margin: 30px 0; 
   }
@@ -24,6 +31,7 @@ export const Button = styled.button`
   border-radius: 6px;
   color: white;
   font-weight: 600;
+  margin-bottom: 40px;
   padding: 8px 0;
   width: 100%;
 
