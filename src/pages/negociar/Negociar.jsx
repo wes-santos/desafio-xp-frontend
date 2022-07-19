@@ -8,7 +8,7 @@ import * as C from './style';
 import TradingTable from '../../components/TradingTable/TradingTable';
 import { todasAcoes } from '../../data';
 import './negociar.css';
-import { subtractMoney } from '../../actions';
+import { buyAsset, subtractMoney } from '../../actions';
 import Modal from '../../components/Modal/Modal';
 
 export default function Negociar() {
@@ -20,6 +20,8 @@ export default function Negociar() {
   const dispath = useDispatch();
 
   const asset = todasAcoes.find((e) => e.CodAtivo === clickedAsset);
+
+  // useEffect(() => { console.log(myAssets); }, [myAssets]);
 
   const [buyAmount, setBuyAmount] = useState(asset.Valor);
 
@@ -56,10 +58,11 @@ export default function Negociar() {
     setSellClick(false);
   };
 
-  const buyAsset = () => {
+  const handleBuyAsset = () => {
     if (balance - buyAmount < 0) {
       return setModalVisibility(true);
     }
+    dispath(buyAsset(asset.CodAtivo, qty));
     return dispath(subtractMoney(buyAmount));
   };
 
@@ -138,7 +141,7 @@ export default function Negociar() {
               Voltar
             </C.SecondaryButton>
           </Link>
-          <C.SecondaryButton type="Confirmar" onClick={buyAsset}>
+          <C.SecondaryButton type="Confirmar" onClick={handleBuyAsset}>
             Confirmar
           </C.SecondaryButton>
         </C.ButtonsContainer>

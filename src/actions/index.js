@@ -12,3 +12,11 @@ export const saveClickedAsset = (value) => ({
   type: 'SAVE_CLICKED_ASSET',
   payload: value,
 });
+
+export const buyAsset = (codAtivo, qtdeAtivo) => ({
+  type: 'BUY_ASSET',
+  payload: {
+    codAtivo,
+    qtdeAtivo,
+  },
+});

@@ -1,6 +1,10 @@
 const INITIAL_STATE = {
   balance: 999.99,
   clickedAsset: 'PETR4',
+  myAssets: [{
+    codAtivo: '',
+    qtdeAtivo: 0,
+  }],
 };
 
 function subMoney(state, payload) {
@@ -18,6 +22,32 @@ function subMoney(state, payload) {
   return balance;
 }
 
+function buyAsset(state, payload) {
+  const fakeState = [...state.myAssets];
+  const actualAsset = fakeState
+    .find((e) => e.codAtivo === payload.codAtivo);
+
+  const isAssetNew = !(actualAsset || false);
+
+  if (isAssetNew) {
+    return [...fakeState, payload];
+  }
+
+  const indexOfActualAsset = fakeState.indexOf(actualAsset);
+
+  const updatedState = fakeState.map((asset, index) => {
+    if (index === indexOfActualAsset) {
+      return ({
+        codAtivo: asset.codAtivo,
+        qtdeAtivo: asset.qtdeAtivo + payload.qtdeAtivo,
+      });
+    }
+    return asset;
+  });
+
+  return updatedState;
+}
+
 // eslint-disable-next-line default-param-last
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -30,6 +60,10 @@ const userReducer = (state = INITIAL_STATE, action) => {
       balance: subMoney(state, action.payload),
     };
     case 'SAVE_CLICKED_ASSET': return { ...state, clickedAsset: action.payload };
+    case 'BUY_ASSET': return {
+      ...state,
+      myAssets: buyAsset(state, action.payload),
+    };
     default: return state;
   }
 };
