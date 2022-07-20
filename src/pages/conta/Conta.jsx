@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import * as C from './style';
@@ -23,9 +23,15 @@ export default function Conta() {
     setDepositClick(false);
   };
 
+  const inputRef = useRef(null);
   const saveMoney = () => {
+    if (!(money !== '')) {
+      inputRef.current.placeholder = 'Você precisa digitar um valor';
+      return inputRef.current.focus();
+    }
     dispatch(isDepositClicked ? addMoney(money) : subtractMoney(money));
-    setMoney('');
+    inputRef.current.placeholder = 'Informe o valor';
+    return setMoney('');
   };
 
   return (
@@ -55,6 +61,7 @@ export default function Conta() {
         </C.ButtonsContainer>
         <input
           type="number"
+          ref={inputRef}
           placeholder="Informe o Valor"
           onChange={({ target }) => setMoney(target.value)}
           value={money}
