@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import * as C from './style';
 import Header from '../../../components/header/Header';
 import Table from '../../../components/table/Table';
@@ -21,13 +20,6 @@ export default function Acoes() {
             <Table acoes={todasAcoes} />
           </section>
         </div>
-        <Link to="/conta">
-          <C.Button
-            type="button"
-          >
-            Depósito / Retirada
-          </C.Button>
-        </Link>
       </C.Container>
     </C.Wrapper>
   );

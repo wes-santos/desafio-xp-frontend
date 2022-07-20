@@ -24,18 +24,3 @@ export const Wrapper = styled.div`
   height: 100%;
   width: 100%;
 `;
-
-export const Button = styled.button`
-  background-color: black;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  font-weight: 600;
-  margin-bottom: 40px;
-  padding: 8px 0;
-  width: 100%;
-
-  &:active {
-    background-color: #363636;
-  }
-`;

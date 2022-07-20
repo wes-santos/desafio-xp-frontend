@@ -44,7 +44,7 @@ export default function Login() {
         <p>Senha</p>
         <input id="passwordInput" type="password" onChange={validatePassword} />
       </C.Label>
-      <Link to="/home">
+      <Link to="/home" onClick={() => setIsButtonEnabled(false)}>
         <C.Button type="button" disabled={!isButtonEnabled}>Acessar</C.Button>
       </Link>
     </C.Form>

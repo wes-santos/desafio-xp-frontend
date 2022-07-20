@@ -32,22 +32,22 @@ export default function Conta() {
     <C.Section>
       {Header()}
       <C.SaldoContainer>
-        <h2>Saldo em conta: </h2>
-        <p>{`R$${globalState.balance}`}</p>
+        <h2>Valor disponível </h2>
+        <p>{`R$ ${globalState.balance}`}</p>
       </C.SaldoContainer>
       <C.MainContainer>
         <C.ButtonsContainer>
           <C.PrimaryButton
             type="button"
             // autofocus="true"
-            className={isDepositClicked ? 'active' : 'inactive'}
+            className={isDepositClicked ? 'yellow' : 'light-grey'}
             onClick={handleDepositClick}
           >
             Depósito
           </C.PrimaryButton>
           <C.PrimaryButton
             type="button"
-            className={isWithdrawClicked ? 'active' : 'inactive'}
+            className={isWithdrawClicked ? 'yellow' : 'light-grey'}
             onClick={handleWithdrawClick}
           >
             Retirada
@@ -61,7 +61,7 @@ export default function Conta() {
         />
       </C.MainContainer>
       <C.ButtonsContainer>
-        <Link to="/investimentos/acoes">
+        <Link to="/home">
           <C.SecondaryButton type="button">
             Voltar
           </C.SecondaryButton>
