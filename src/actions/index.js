@@ -20,3 +20,16 @@ export const buyAsset = (codAtivo, qtdeAtivo) => ({
     qtdeAtivo,
   },
 });
+
+export const sellAsset = (codAtivo, qtdeAtivo) => ({
+  type: 'SELL_ASSET',
+  payload: {
+    codAtivo,
+    qtdeAtivo,
+  },
+});
+
+export const sumMoney = (value) => ({
+  type: 'SUM_MONEY',
+  payload: value,
+});

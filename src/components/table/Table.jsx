@@ -1,20 +1,27 @@
 /* eslint-disable react/prop-types */
 import React, { useId } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as C from './style';
 import { saveClickedAsset } from '../../actions';
 import './style.css';
 
-const owned = 0;
-
 export default function Table({ acoes }) {
   const dispatch = useDispatch();
   const history = useNavigate();
+  const { myAssets } = useSelector((state) => state.user);
 
   const handleClick = (asset) => {
     dispatch(saveClickedAsset(asset));
     return history('/negociar');
+  };
+
+  const updateAssetsQty = (asset) => {
+    const actualAsset = myAssets.find((e) => e.codAtivo === asset.CodAtivo);
+    if (actualAsset) {
+      return actualAsset.qtdeAtivo;
+    }
+    return 0;
   };
 
   return (
@@ -35,7 +42,9 @@ export default function Table({ acoes }) {
             </td>
             <td>
               <C.PriceContainer>
-                <p className="green">{owned}</p>
+                <p className="green">
+                  {updateAssetsQty(e)}
+                </p>
                 <p>{`R$ ${e.Valor.toString().replace('.', ',')}`}</p>
               </C.PriceContainer>
             </td>

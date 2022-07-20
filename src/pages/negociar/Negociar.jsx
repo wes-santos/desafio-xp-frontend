@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/header/Header';
-// import '../investimentos/acoes/style.css';
 import * as C from './style';
 import TradingTable from '../../components/TradingTable/TradingTable';
 import { todasAcoes } from '../../data';
 import './negociar.css';
-import { buyAsset, subtractMoney } from '../../actions';
+import {
+  buyAsset, sellAsset, subtractMoney, sumMoney,
+} from '../../actions';
 import Modal from '../../components/Modal/Modal';
 
 export default function Negociar() {
@@ -17,11 +18,9 @@ export default function Negociar() {
   const [isBuyClicked, setBuyClick] = useState(true);
   const [isSellClicked, setSellClick] = useState(false);
   const [isModalVisible, setModalVisibility] = useState(false);
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
 
   const asset = todasAcoes.find((e) => e.CodAtivo === clickedAsset);
-
-  // useEffect(() => { console.log(myAssets); }, [myAssets]);
 
   const [buyAmount, setBuyAmount] = useState(asset.Valor);
 
@@ -58,12 +57,22 @@ export default function Negociar() {
     setSellClick(false);
   };
 
-  const handleBuyAsset = () => {
+  const handleBuyOrSellAsset = () => {
     if (balance - buyAmount < 0) {
       return setModalVisibility(true);
     }
-    dispath(buyAsset(asset.CodAtivo, qty));
-    return dispath(subtractMoney(buyAmount));
+
+    if (isBuyClicked) {
+      dispatch(buyAsset(asset.CodAtivo, qty));
+      return dispatch(subtractMoney(buyAmount));
+    }
+
+    if (isSellClicked) {
+      dispatch(sellAsset(asset.CodAtivo, qty));
+      return dispatch(sumMoney(buyAmount));
+    }
+
+    return false;
   };
 
   return (
@@ -80,7 +89,7 @@ export default function Negociar() {
             {balance.toString().replace('.', ',')}
           </C.H3>
 
-          <TradingTable acoes={asset} />
+          {TradingTable(asset)}
 
           <C.BuyAndSellContainer>
             <button
@@ -141,7 +150,7 @@ export default function Negociar() {
               Voltar
             </C.SecondaryButton>
           </Link>
-          <C.SecondaryButton type="Confirmar" onClick={handleBuyAsset}>
+          <C.SecondaryButton type="Confirmar" onClick={handleBuyOrSellAsset}>
             Confirmar
           </C.SecondaryButton>
         </C.ButtonsContainer>
