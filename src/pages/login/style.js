@@ -24,9 +24,10 @@ export const Label = styled.label`
     background-color: transparent;
     border: none;
     border-bottom: solid 1px white;
+    color: white;
     padding: 8px;
-    width: 100%;
     transition: all 0.4s ease-in-out;
+    width: 100%;
 
     &:focus {
       border-bottom: solid 2px white;
@@ -52,5 +53,11 @@ export const Button = styled.button`
 
   &:active {
     background-color: rgb(224, 173, 0);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    color: #1c1c1c;
+    cursor: not-allowed;
   }
 `;

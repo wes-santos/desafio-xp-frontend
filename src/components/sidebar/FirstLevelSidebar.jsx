@@ -45,8 +45,10 @@ export default function Sidebar({ active }) {
             </button>
           </li>
           <li>
-            Sair
-            <img src={arrow} alt="yellow arrow" />
+            <button type="button" onClick={closeSidebar}>
+              <Link to="/">Sair</Link>
+              <img src={arrow} alt="yellow arrow" />
+            </button>
           </li>
         </ul>
       </nav>
