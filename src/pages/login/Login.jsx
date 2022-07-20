@@ -8,6 +8,7 @@ export default function Login() {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+  const [emailValue, setEmailValue] = useState('');
 
   useEffect(() => {
     if (isEmailValid && isPasswordValid) {
@@ -17,6 +18,26 @@ export default function Login() {
     }
   }, [isEmailValid, isPasswordValid]);
 
+  const validateEmail = ({ target: { value } }) => {
+    // eslint-disable-next-line no-useless-escape
+    const regExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    setEmailValue(value);
+    if (value.match(regExp)) {
+      return setIsEmailValid(true);
+    }
+
+    return setIsEmailValid(false);
+  };
+
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    const userEmail = localStorage.getItem('userEmail');
+    if (userEmail) {
+      setEmailValue(userEmail);
+      validateEmail({ target: { value: userEmail } });
+    }
+  }, []);
+
   const validatePassword = ({ target: { value } }) => {
     if (value.length >= 6) {
       return setIsPasswordValid(true);
@@ -24,13 +45,10 @@ export default function Login() {
     return setIsPasswordValid(false);
   };
 
-  const validateEmail = ({ target: { value } }) => {
-    // eslint-disable-next-line no-useless-escape
-    const regExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (value.match(regExp)) {
-      return setIsEmailValid(true);
-    }
-    return setIsEmailValid(false);
+  const handleLogin = () => {
+    setIsButtonEnabled(false);
+    // eslint-disable-next-line no-undef
+    localStorage.setItem('userEmail', emailValue);
   };
 
   return (
@@ -38,13 +56,13 @@ export default function Login() {
       <img src={xpLogo} alt="logo xp" />
       <C.Label htmlFor="emailInput">
         <p>E-mail</p>
-        <input id="emailInput" type="email" onChange={validateEmail} />
+        <input id="emailInput" type="email" onChange={validateEmail} value={emailValue} />
       </C.Label>
       <C.Label htmlFor="passwordInput">
         <p>Senha</p>
         <input id="passwordInput" type="password" onChange={validatePassword} />
       </C.Label>
-      <Link to="/home" onClick={() => setIsButtonEnabled(false)}>
+      <Link to="/home" onClick={handleLogin}>
         <C.Button type="button" disabled={!isButtonEnabled}>Acessar</C.Button>
       </Link>
     </C.Form>
