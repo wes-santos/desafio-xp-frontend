@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Login from './pages/login/Login';
-import Home from './pages/home/Home';
-import Negociar from './pages/negociar/Negociar';
-import Conta from './pages/conta/Conta';
-import Acoes from './pages/investimentos/acoes/Acoes';
+import Login from './pages/Login/Login';
+import Home from './pages/Home/Home';
+import Negociar from './pages/Negociar/Negociar';
+import Conta from './pages/Conta/Conta';
+import Acoes from './pages/Investimentos/Acoes/Acoes';
 
 function App() {
   return (

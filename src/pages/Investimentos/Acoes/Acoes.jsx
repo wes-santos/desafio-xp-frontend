@@ -2,7 +2,7 @@
 import React from 'react';
 import * as C from './style';
 import Header from '../../../components/header/Header';
-import Table from '../../../components/table/Table';
+import Table from '../../../components/Table/Table';
 import { minhasAcoes, todasAcoes } from '../../../data';
 
 export default function Acoes() {

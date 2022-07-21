@@ -9,7 +9,7 @@ import { todasAcoes } from '../../data';
 import './negociar.css';
 import {
   buyAsset, sellAsset, subtractMoney, sumMoney,
-} from '../../actions';
+} from '../../redux/actions';
 import Modal from '../../components/Modal/Modal';
 
 export default function Negociar() {

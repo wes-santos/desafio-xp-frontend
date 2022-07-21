@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import * as C from './style';
 import xpiLogo from '../../shared/images/logo-xpi.svg';
 import menuIcon from './menu-icon.svg';
-import Sidebar from '../sidebar/FirstLevelSidebar';
+import Sidebar from '../Sidebar/FirstLevelSidebar';
 
 export default function Header() {
   const [sidebar, setSidebar] = useState(false);

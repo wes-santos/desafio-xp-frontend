@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as C from './style';
 import Header from '../../components/header/Header';
 import './conta.css';
-import { addMoney, subtractMoney } from '../../actions';
+import { addMoney, subtractMoney } from '../../redux/actions';
 
 export default function Conta() {
   const [isWithdrawClicked, setWithdrawClicked] = useState(false);

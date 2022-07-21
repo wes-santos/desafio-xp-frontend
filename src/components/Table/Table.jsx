@@ -3,7 +3,7 @@ import React, { useId } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as C from './style';
-import { saveClickedAsset } from '../../actions';
+import { saveClickedAsset } from '../../redux/actions';
 import './style.css';
 
 export default function Table({ acoes }) {

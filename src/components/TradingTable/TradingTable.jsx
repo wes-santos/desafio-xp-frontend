@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import TableContainer from './style';
-import '../table/style.css';
-import * as C from '../table/style';
+import '../Table/style.css';
+import * as C from '../Table/style';
 
 export default function TradingTable({
   Image, CodAtivo, Subtitle, Valor,
