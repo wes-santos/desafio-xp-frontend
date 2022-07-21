@@ -2,12 +2,12 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from '../App';
-import renderWithRouter from '../helpers/renderWithRouterAndRedux';
+import App from '../../App';
+import renderWithRouterAndRedux from '../../helpers/renderWithRouterAndRedux';
 
 describe('Verifica se', () => {
   it('Inputs de email e senha existem', () => {
-    renderWithRouter(<App />);
+    renderWithRouterAndRedux(<App />);
     const emailInputEl = screen.getByRole('textbox');
     const passwordInputEl = screen.getByLabelText('Senha');
 
@@ -16,7 +16,7 @@ describe('Verifica se', () => {
   });
 
   it('Logo da XP está presente', () => {
-    renderWithRouter(<App />);
+    renderWithRouterAndRedux(<App />);
 
     const imgEl = screen.getByAltText('logo xp');
 
@@ -24,7 +24,7 @@ describe('Verifica se', () => {
   });
 
   it('Botão de acessar está desabilitado inicialmente', () => {
-    renderWithRouter(<App />);
+    renderWithRouterAndRedux(<App />);
     const buttonEl = screen.getByRole('button', { name: 'Acessar' });
 
     expect(buttonEl).toBeInTheDocument();
@@ -32,7 +32,7 @@ describe('Verifica se', () => {
   });
 
   it('Botão de acessar é habilitado ao colocar um e-mail e senha válidos', () => {
-    renderWithRouter(<App />);
+    renderWithRouterAndRedux(<App />);
     const emailInputEl = screen.getByRole('textbox');
     const passwordInputEl = screen.getByLabelText('Senha');
     const buttonEl = screen.getByRole('button', { name: 'Acessar' });
@@ -63,7 +63,7 @@ describe('Verifica se', () => {
   });
 
   it('Ao clicar no botão de acessar, é feito um redirecionamento para a página inicial', () => {
-    renderWithRouter(<App />);
+    renderWithRouterAndRedux(<App />);
     const emailInputEl = screen.getByRole('textbox');
     const passwordInputEl = screen.getByLabelText('Senha');
     const buttonEl = screen.getByRole('button', { name: 'Acessar' });

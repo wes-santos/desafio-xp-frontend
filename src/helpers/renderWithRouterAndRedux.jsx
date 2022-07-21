@@ -7,6 +7,7 @@ import store from '../redux/store';
 
 const renderWithRouterAndRedux = (
   component,
+  route = '/',
 ) => {
   const history = createMemoryHistory();
   return ({
@@ -14,7 +15,7 @@ const renderWithRouterAndRedux = (
     store,
     ...render(
       <Provider store={store}>
-        <MemoryRouter history={history}>
+        <MemoryRouter history={history} initialEntries={[route]}>
           {component}
         </MemoryRouter>
       </Provider>,
