@@ -13,10 +13,10 @@ describe('Verifica se', () => {
     const inputEl = screen.getByPlaceholderText('Informe o Valor');
 
     expect(h2El).toBeInTheDocument();
-    expect(buttonsEls[1].innerHTML).toBe('Depósito');
-    expect(buttonsEls[2].innerHTML).toBe('Retirada');
-    expect(buttonsEls[3].innerHTML).toBe('Voltar');
-    expect(buttonsEls[4].innerHTML).toBe('Confirmar');
+    expect(buttonsEls[2].innerHTML).toBe('Depósito');
+    expect(buttonsEls[3].innerHTML).toBe('Retirada');
+    expect(buttonsEls[4].innerHTML).toBe('Voltar');
+    expect(buttonsEls[5].innerHTML).toBe('Confirmar');
     expect(inputEl).toBeInTheDocument();
   });
 

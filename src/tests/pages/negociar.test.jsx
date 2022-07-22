@@ -24,10 +24,10 @@ describe('Verifica se', () => {
     expect(h3El.innerHTML).toContain('Valor disponível:');
     expect(tableEl).toBeInTheDocument();
     expect(tableRowEl).toBeInTheDocument();
-    expect(buttonsEls[1].innerHTML).toBe('Comprar');
-    expect(buttonsEls[2].innerHTML).toBe('Vender');
-    expect(buttonsEls[5].innerHTML).toBe('Voltar');
-    expect(buttonsEls[6].innerHTML).toBe('Confirmar');
+    expect(buttonsEls[2].innerHTML).toBe('Comprar');
+    expect(buttonsEls[3].innerHTML).toBe('Vender');
+    expect(buttonsEls[6].innerHTML).toBe('Voltar');
+    expect(buttonsEls[7].innerHTML).toBe('Confirmar');
     expect(qtyInputEl).toBeInTheDocument();
     expect(priceInputEl).toBeInTheDocument();
     expect(totalInputEl).toBeInTheDocument();
