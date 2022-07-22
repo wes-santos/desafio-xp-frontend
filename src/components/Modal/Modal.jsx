@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as C from './style';
 
-export default function Modal(active) {
+export default function Modal(active, message = 'Você não tem dinheiro suficiente para realizar a transação :(') {
   return (
     <C.ModalContainer>
       <C.ModalFix>
         <div>
           <C.ModalMessage>
-            Você não tem dinheiro suficiente para realizar a transação :(
+            {message}
           </C.ModalMessage>
         </div>
         <C.ModalButtonsContainer>

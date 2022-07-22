@@ -9,11 +9,8 @@ export default function TradingTable({
   Image, CodAtivo, Subtitle, Valor,
 }) {
   const { userAssets } = useSelector((state) => state.user);
-  // const [userAssetQty, setUserAssetQty] = useState(0);
-
+  const actualAsset = userAssets.find((asset) => asset.CodAtivo === CodAtivo);
   const getQuantity = () => {
-    const actualAsset = userAssets.find((asset) => asset.CodAtivo === CodAtivo);
-
     if (actualAsset) {
       return actualAsset.QtdeAtivo;
     }
@@ -39,8 +36,8 @@ export default function TradingTable({
             </td>
             <td>
               <C.PriceContainer>
-                <p className="green">{getQuantity()}</p>
-                <p>{`R$ ${Valor.toString().replace('.', ',')}`}</p>
+                <p className="green" data-testid="asset-quantity">{getQuantity()}</p>
+                <p data-testid="asset-price">{`R$ ${Valor.toString().replace('.', ',')}`}</p>
               </C.PriceContainer>
             </td>
           </tr>

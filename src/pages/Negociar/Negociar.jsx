@@ -12,14 +12,18 @@ import {
 import Modal from '../../components/Modal/Modal';
 
 export default function Negociar() {
-  const { clickedAsset, balance, allAssets } = useSelector((state) => state.user);
-  const [qty, setQty] = useState(1);
+  const {
+    clickedAsset, balance, allAssets,
+  } = useSelector((state) => state.user);
+  const [qty, setQty] = useState('1');
   const [isBuyClicked, setBuyClick] = useState(true);
   const [isSellClicked, setSellClick] = useState(false);
   const [isModalVisible, setModalVisibility] = useState(false);
+  const [isTransactionNotOk, setIsTransactionNotOk] = useState(false);
   const dispatch = useDispatch();
 
   const asset = allAssets.find((e) => e.CodAtivo === clickedAsset);
+  // const actualAsset = userAssets.find((e) => e.CodAtivo === asset.CodAtivo);
 
   const [buyAmount, setBuyAmount] = useState(asset.Valor);
 
@@ -29,7 +33,7 @@ export default function Negociar() {
 
   const handleChange = ({ target: { value } }) => {
     setQty(() => {
-      const result = value ? parseInt(value, 10) : 1;
+      const result = parseInt(value, 10);
       setBuyAmount((result * asset.Valor).toFixed(2));
       return result;
     });
@@ -60,6 +64,7 @@ export default function Negociar() {
     setSellClick(false);
   };
 
+  // eslint-disable-next-line consistent-return
   const handleBuyOrSellAsset = () => {
     if (balance - buyAmount < 0) {
       return setModalVisibility(true);
@@ -73,19 +78,26 @@ export default function Negociar() {
     }
 
     if (isSellClicked) {
-      dispatch(sellAsset(asset, qty));
-      setQty(1);
-      dispatch(sumMoney(buyAmount));
-      return setBuyAmount(asset.Valor);
+      try {
+        dispatch(sellAsset(asset, qty));
+        setQty(1);
+        dispatch(sumMoney(buyAmount));
+        return setBuyAmount(asset.Valor);
+      } catch (error) {
+        return setIsTransactionNotOk(true);
+      }
     }
+  };
 
-    return false;
+  const handleFocus = ({ target }) => {
+    target.select();
   };
 
   return (
     <C.Section>
       {Header()}
       {isModalVisible && Modal(setModalVisibility)}
+      {isTransactionNotOk && Modal(setIsTransactionNotOk, 'Você não tem ações suficientes para realizar a transação :(')}
       <C.PageWrapper>
         <C.MainContainer>
           <C.Title>Comprar/Vender Ação</C.Title>
@@ -93,7 +105,9 @@ export default function Negociar() {
           <C.H3>
             Valor disponível: R$
             {' '}
-            {balance.toString().replace('.', ',')}
+            <span data-testid="user-balance">
+              {balance.toString().replace('.', ',')}
+            </span>
           </C.H3>
 
           {TradingTable(asset)}
@@ -123,8 +137,10 @@ export default function Negociar() {
                 <input
                   type="number"
                   id="qtyInput"
+                  data-testid="quantity-input"
                   value={qty}
                   onChange={handleChange}
+                  onFocus={handleFocus}
                   min="1"
                 />
                 <button type="button" className="addButton" onClick={sumQty}>+</button>

@@ -57,21 +57,21 @@ function buyAsset(state, payload) {
 function sellAsset(state, payload) {
   const fakeState = [...state.userAssets];
   const actualAsset = fakeState
-    .find((e) => e.codAtivo === payload.codAtivo);
-
-  const isAssetNew = !(actualAsset || false);
-
-  if (isAssetNew) {
-    return [...fakeState, payload];
-  }
+    .find((e) => e.CodAtivo === payload.CodAtivo);
 
   const indexOfActualAsset = fakeState.indexOf(actualAsset);
 
   const updatedState = fakeState.map((asset, index) => {
     if (index === indexOfActualAsset) {
+      const isTransactionValid = asset.QtdeAtivo - payload.QtdeAtivo >= 0;
+
+      if (!isTransactionValid) {
+        throw new Error('Você não tem ações suficientes para realizar essa transação :(');
+      }
+
       return ({
-        codAtivo: asset.codAtivo,
-        qtdeAtivo: asset.qtdeAtivo - payload.qtdeAtivo,
+        ...asset,
+        QtdeAtivo: asset.QtdeAtivo - payload.QtdeAtivo,
       });
     }
     return asset;
