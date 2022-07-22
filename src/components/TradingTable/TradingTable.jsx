@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import TableContainer from './style';
 import '../Table/style.css';
@@ -9,15 +9,17 @@ export default function TradingTable({
   Image, CodAtivo, Subtitle, Valor,
 }) {
   const { userAssets } = useSelector((state) => state.user);
-  const [userAssetQty, setUserAssetQty] = useState(0);
+  // const [userAssetQty, setUserAssetQty] = useState(0);
 
-  useEffect(() => {
-    userAssets.forEach((e) => {
-      if (e.CodAtivo === CodAtivo) {
-        setUserAssetQty(e.QtdeAtivo);
-      }
-    });
-  }, [userAssets]);
+  const getQuantity = () => {
+    const actualAsset = userAssets.find((asset) => asset.CodAtivo === CodAtivo);
+
+    if (actualAsset) {
+      return actualAsset.QtdeAtivo;
+    }
+
+    return 0;
+  };
 
   return (
     <TableContainer>
@@ -37,7 +39,7 @@ export default function TradingTable({
             </td>
             <td>
               <C.PriceContainer>
-                <p className="green">{userAssetQty}</p>
+                <p className="green">{getQuantity()}</p>
                 <p>{`R$ ${Valor.toString().replace('.', ',')}`}</p>
               </C.PriceContainer>
             </td>

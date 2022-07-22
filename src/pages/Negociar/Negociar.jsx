@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/header/Header';
@@ -22,6 +22,10 @@ export default function Negociar() {
   const asset = allAssets.find((e) => e.CodAtivo === clickedAsset);
 
   const [buyAmount, setBuyAmount] = useState(asset.Valor);
+
+  useEffect(() => {
+    setBuyAmount(asset.Valor);
+  }, [asset]);
 
   const handleChange = ({ target: { value } }) => {
     setQty(() => {
@@ -63,14 +67,14 @@ export default function Negociar() {
 
     if (isBuyClicked) {
       dispatch(buyAsset(asset, qty));
-      setQty(0);
+      setQty(1);
       dispatch(subtractMoney(buyAmount));
       return setBuyAmount(asset.Valor);
     }
 
     if (isSellClicked) {
       dispatch(sellAsset(asset, qty));
-      setQty(0);
+      setQty(1);
       dispatch(sumMoney(buyAmount));
       return setBuyAmount(asset.Valor);
     }
