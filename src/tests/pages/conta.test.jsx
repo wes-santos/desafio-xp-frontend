@@ -3,7 +3,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../../App';
-import renderWithRouterAndRedux from '../../helpers/renderWithRouterAndRedux';
+import renderWithRouterAndRedux from '../../utils/renderWithRouterAndRedux';
 
 describe('Verifica se', () => {
   it('Os elementos estão disponíveis na tela', () => {
@@ -28,5 +28,71 @@ describe('Verifica se', () => {
 
     const h2El = screen.getByRole('heading', { level: 2, name: 'Seja bem-vindo(a)!' });
     expect(h2El).toBeInTheDocument();
+  });
+
+  it('É possível realizar um depósito na conta', () => {
+    const { store } = renderWithRouterAndRedux(<App />, '/conta');
+    const inputEl = screen.getByPlaceholderText('Informe o Valor');
+    const confirmButtonEl = screen.getByRole('button', { name: 'Confirmar' });
+    const depositButtonEl = screen.getByRole('button', { name: 'Depósito' });
+    const userBalance = screen.getByTestId('user-balance');
+    const stateUserBalance = store.getState().user.balance;
+
+    expect(depositButtonEl).toHaveClass('yellow');
+    userEvent.type(inputEl, '10');
+    expect(inputEl).toHaveValue(10);
+    expect(userBalance.innerHTML).toBe(`R$ ${stateUserBalance}`);
+    userEvent.click(confirmButtonEl);
+
+    expect(userBalance.innerHTML).toBe(`R$ ${stateUserBalance + 10}`);
+  });
+
+  it('É possível retirar dinheiro da conta', () => {
+    const { store } = renderWithRouterAndRedux(<App />, '/conta');
+    const inputEl = screen.getByPlaceholderText('Informe o Valor');
+    const confirmButtonEl = screen.getByRole('button', { name: 'Confirmar' });
+    const depositButtonEl = screen.getByRole('button', { name: 'Depósito' });
+    const withdrawButtonEl = screen.getByRole('button', { name: 'Retirada' });
+    const userBalance = screen.getByTestId('user-balance');
+    const stateUserBalance = store.getState().user.balance;
+
+    expect(depositButtonEl).toHaveClass('yellow');
+    expect(withdrawButtonEl).toHaveClass('light-grey');
+    expect(userBalance.innerHTML).toBe(`R$ ${stateUserBalance}`);
+
+    userEvent.click(withdrawButtonEl);
+
+    expect(withdrawButtonEl).toHaveClass('yellow');
+    expect(depositButtonEl).toHaveClass('light-grey');
+
+    userEvent.type(inputEl, '10');
+    expect(inputEl).toHaveValue(10);
+    userEvent.click(confirmButtonEl);
+
+    expect(userBalance.innerHTML).toBe(`R$ ${stateUserBalance - 10}`);
+  });
+
+  it('Não é possível retirar mais dinheiro do que o disponível na conta', () => {
+    const { store } = renderWithRouterAndRedux(<App />, '/conta');
+    const inputEl = screen.getByPlaceholderText('Informe o Valor');
+    const confirmButtonEl = screen.getByRole('button', { name: 'Confirmar' });
+    const depositButtonEl = screen.getByRole('button', { name: 'Depósito' });
+    const withdrawButtonEl = screen.getByRole('button', { name: 'Retirada' });
+    const userBalance = screen.getByTestId('user-balance');
+    const stateUserBalance = store.getState().user.balance;
+
+    userEvent.click(withdrawButtonEl);
+
+    expect(withdrawButtonEl).toHaveClass('yellow');
+    expect(depositButtonEl).toHaveClass('light-grey');
+
+    userEvent.type(inputEl, ((parseFloat(stateUserBalance, 10) + 10).toFixed(2)).toString());
+    expect(inputEl).toHaveValue(Number((parseFloat(stateUserBalance, 10) + 10).toFixed(2)));
+    userEvent.click(confirmButtonEl);
+
+    const modalTextEl = screen.getByText('Você não tem dinheiro suficiente para realizar a transação :(');
+
+    expect(userBalance.innerHTML).toBe(`R$ ${stateUserBalance}`);
+    expect(modalTextEl).toBeInTheDocument();
   });
 });

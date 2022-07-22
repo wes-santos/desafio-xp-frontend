@@ -13,7 +13,7 @@ function subMoney(state, payload) {
     const newBalance = (parseFloat(balance, 10) - parseFloat(payload, 10)).toFixed(2);
 
     if (newBalance < 0) {
-      return 0;
+      throw new Error('Você não tem dinheiro suficiente para realizar a transação :(');
     }
 
     return newBalance;

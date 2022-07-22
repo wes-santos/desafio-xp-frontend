@@ -5,12 +5,14 @@ import * as C from './style';
 import Header from '../../components/header/Header';
 import './conta.css';
 import { addMoney, subtractMoney } from '../../redux/actions';
+import Modal from '../../components/Modal/Modal';
 
 export default function Conta() {
   const [isWithdrawClicked, setWithdrawClicked] = useState(false);
   const [isDepositClicked, setDepositClick] = useState(true);
   const globalState = useSelector((state) => state.user);
   const [money, setMoney] = useState('');
+  const [isModalVisible, setModalVisibility] = useState(false);
   const dispatch = useDispatch();
 
   const handleDepositClick = () => {
@@ -25,27 +27,32 @@ export default function Conta() {
 
   const inputRef = useRef(null);
   const saveMoney = () => {
-    if (!(money !== '')) {
-      inputRef.current.placeholder = 'Você precisa digitar um valor';
-      return inputRef.current.focus();
+    try {
+      if (!(money !== '')) {
+        inputRef.current.placeholder = 'Você precisa digitar um valor';
+        return inputRef.current.focus();
+      }
+      dispatch(isDepositClicked ? addMoney(money) : subtractMoney(money));
+      inputRef.current.placeholder = 'Informe o valor';
+      return setMoney('');
+    } catch (err) {
+      setModalVisibility(true);
+      return Modal(setModalVisibility);
     }
-    dispatch(isDepositClicked ? addMoney(money) : subtractMoney(money));
-    inputRef.current.placeholder = 'Informe o valor';
-    return setMoney('');
   };
 
   return (
     <C.Section>
       {Header()}
+      {isModalVisible && Modal(setModalVisibility)}
       <C.SaldoContainer>
         <h2>Valor disponível </h2>
-        <p>{`R$ ${globalState.balance}`}</p>
+        <p data-testid="user-balance">{`R$ ${globalState.balance}`}</p>
       </C.SaldoContainer>
       <C.MainContainer>
         <C.ButtonsContainer>
           <C.PrimaryButton
             type="button"
-            // autofocus="true"
             className={isDepositClicked ? 'yellow' : 'light-grey'}
             onClick={handleDepositClick}
           >
