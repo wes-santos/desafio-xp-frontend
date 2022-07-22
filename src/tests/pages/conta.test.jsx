@@ -95,4 +95,35 @@ describe('Verifica se', () => {
     expect(userBalance.innerHTML).toBe(`R$ ${stateUserBalance}`);
     expect(modalTextEl).toBeInTheDocument();
   });
+
+  it('É necessário digitar um valor para realizar a ação', () => {
+    renderWithRouterAndRedux(<App />, '/conta');
+    const inputEl = screen.getByPlaceholderText('Informe o Valor');
+    const confirmButtonEl = screen.getByRole('button', { name: 'Confirmar' });
+
+    userEvent.click(confirmButtonEl);
+
+    expect(inputEl).toHaveAttribute('placeholder', 'Você precisa digitar um valor');
+    expect(inputEl.focus).toBeTruthy();
+  });
+
+  it('Os botões de depósito e retirada alternam as classes de maneira correta', () => {
+    renderWithRouterAndRedux(<App />, '/conta');
+
+    const depositButtonEl = screen.getByRole('button', { name: 'Depósito' });
+    const withdrawButtonEl = screen.getByRole('button', { name: 'Retirada' });
+
+    expect(depositButtonEl).toHaveClass('yellow');
+    expect(withdrawButtonEl).toHaveClass('light-grey');
+
+    userEvent.click(withdrawButtonEl);
+
+    expect(withdrawButtonEl).toHaveClass('yellow');
+    expect(depositButtonEl).toHaveClass('light-grey');
+
+    userEvent.click(depositButtonEl);
+
+    expect(depositButtonEl).toHaveClass('yellow');
+    expect(withdrawButtonEl).toHaveClass('light-grey');
+  });
 });
