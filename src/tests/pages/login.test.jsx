@@ -38,27 +38,27 @@ describe('Verifica se', () => {
     const buttonEl = screen.getByRole('button', { name: 'Acessar' });
 
     userEvent.type(emailInputEl, 'email@email.com');
-    expect(emailInputEl.value).toBe('email@email.com');
+    expect(emailInputEl).toHaveValue('email@email.com');
     userEvent.type(passwordInputEl, '12345');
-    expect(passwordInputEl.value).toBe('12345');
+    expect(passwordInputEl).toHaveValue('12345');
     expect(buttonEl).toBeDisabled();
 
     userEvent.clear(emailInputEl);
     userEvent.clear(passwordInputEl);
 
     userEvent.type(emailInputEl, 'email@.com');
-    expect(emailInputEl.value).toBe('email@.com');
+    expect(emailInputEl).toHaveValue('email@.com');
     userEvent.type(passwordInputEl, '123456');
-    expect(passwordInputEl.value).toBe('123456');
+    expect(passwordInputEl).toHaveValue('123456');
     expect(buttonEl).toBeDisabled();
 
     userEvent.clear(emailInputEl);
     userEvent.clear(passwordInputEl);
 
     userEvent.type(emailInputEl, 'email@email.com');
-    expect(emailInputEl.value).toBe('email@email.com');
+    expect(emailInputEl).toHaveValue('email@email.com');
     userEvent.type(passwordInputEl, '123456');
-    expect(passwordInputEl.value).toBe('123456');
+    expect(passwordInputEl).toHaveValue('123456');
     expect(buttonEl).toBeEnabled();
   });
 

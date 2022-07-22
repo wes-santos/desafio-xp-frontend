@@ -17,3 +17,8 @@ export const Button = styled.button`
     height: 100%;
   }
 `;
+
+export const LogoButton = styled.button`
+  background-color: transparent;
+  border: none;
+`;

@@ -37,9 +37,6 @@ export default function SecondSidebar(active, setSidebar) {
               <img src={arrow} alt="yellow arrow" />
             </button>
           </li>
-          <li>
-            <Link to="/">Sair</Link>
-          </li>
         </ul>
       </nav>
     </Container>
