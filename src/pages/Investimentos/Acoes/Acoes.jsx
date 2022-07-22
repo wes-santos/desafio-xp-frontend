@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { useSelector } from 'react-redux';
 import * as C from './style';
 import Header from '../../../components/header/Header';
 import Table from '../../../components/Table/Table';
-import { minhasAcoes, todasAcoes } from '../../../data';
 
 export default function Acoes() {
+  const { allAssets, userAssets } = useSelector((state) => state.user);
+
   return (
     <C.Wrapper>
       {Header()}
@@ -13,11 +15,11 @@ export default function Acoes() {
         <div>
           <section>
             <h2>Minhas ações</h2>
-            <Table acoes={minhasAcoes} />
+            <Table acoes={userAssets} />
           </section>
           <section>
             <h2>Disponíveis para investir</h2>
-            <Table acoes={todasAcoes} />
+            <Table acoes={allAssets} />
           </section>
         </div>
       </C.Container>

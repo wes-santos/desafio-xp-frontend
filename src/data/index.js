@@ -9,18 +9,21 @@ export const minhasAcoes = [{
   Valor: 12.19,
   Image: AZUL4,
   Subtitle: 'Azul Pn N2',
+  QtdeAtivo: 0,
 },
 {
   CodAtivo: 'PETR4',
   Valor: 27.96,
   Image: PETR4,
   Subtitle: 'Petrobras Pn N2',
+  QtdeAtivo: 0,
 },
 {
   CodAtivo: 'VALE3',
   Valor: 68.37,
   Image: VALE3,
   Subtitle: 'Vale On Nm',
+  QtdeAtivo: 0,
 }];
 
 export const todasAcoes = [

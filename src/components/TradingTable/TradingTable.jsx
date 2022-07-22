@@ -8,16 +8,16 @@ import * as C from '../Table/style';
 export default function TradingTable({
   Image, CodAtivo, Subtitle, Valor,
 }) {
-  const { myAssets } = useSelector((state) => state.user);
+  const { userAssets } = useSelector((state) => state.user);
   const [userAssetQty, setUserAssetQty] = useState(0);
 
   useEffect(() => {
-    myAssets.forEach((e) => {
-      if (e.codAtivo === CodAtivo) {
-        setUserAssetQty(e.qtdeAtivo);
+    userAssets.forEach((e) => {
+      if (e.CodAtivo === CodAtivo) {
+        setUserAssetQty(e.QtdeAtivo);
       }
     });
-  }, [myAssets]);
+  }, [userAssets]);
 
   return (
     <TableContainer>

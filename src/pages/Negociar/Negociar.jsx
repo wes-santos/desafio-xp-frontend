@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/header/Header';
 import * as C from './style';
 import TradingTable from '../../components/TradingTable/TradingTable';
-import { todasAcoes } from '../../data';
 import './negociar.css';
 import {
   buyAsset, sellAsset, subtractMoney, sumMoney,
@@ -13,14 +12,14 @@ import {
 import Modal from '../../components/Modal/Modal';
 
 export default function Negociar() {
-  const { clickedAsset, balance } = useSelector((state) => state.user);
+  const { clickedAsset, balance, allAssets } = useSelector((state) => state.user);
   const [qty, setQty] = useState(1);
   const [isBuyClicked, setBuyClick] = useState(true);
   const [isSellClicked, setSellClick] = useState(false);
   const [isModalVisible, setModalVisibility] = useState(false);
   const dispatch = useDispatch();
 
-  const asset = todasAcoes.find((e) => e.CodAtivo === clickedAsset);
+  const asset = allAssets.find((e) => e.CodAtivo === clickedAsset);
 
   const [buyAmount, setBuyAmount] = useState(asset.Valor);
 
@@ -63,12 +62,12 @@ export default function Negociar() {
     }
 
     if (isBuyClicked) {
-      dispatch(buyAsset(asset.CodAtivo, qty));
+      dispatch(buyAsset(asset, qty));
       return dispatch(subtractMoney(buyAmount));
     }
 
     if (isSellClicked) {
-      dispatch(sellAsset(asset.CodAtivo, qty));
+      dispatch(sellAsset(asset, qty));
       return dispatch(sumMoney(buyAmount));
     }
 

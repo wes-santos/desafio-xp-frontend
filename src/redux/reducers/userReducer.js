@@ -1,10 +1,10 @@
+import { todasAcoes, minhasAcoes } from '../../data';
+
 const INITIAL_STATE = {
   balance: 999.99,
   clickedAsset: 'PETR4',
-  myAssets: [{
-    codAtivo: '',
-    qtdeAtivo: 0,
-  }],
+  allAssets: todasAcoes,
+  userAssets: minhasAcoes,
 };
 
 function subMoney(state, payload) {
@@ -29,9 +29,9 @@ function sumMoney(state, payload) {
 }
 
 function buyAsset(state, payload) {
-  const fakeState = [...state.myAssets];
+  const fakeState = [...state.userAssets];
   const actualAsset = fakeState
-    .find((e) => e.codAtivo === payload.codAtivo);
+    .find((e) => e.CodAtivo === payload.CodAtivo);
 
   const isAssetNew = !(actualAsset || false);
 
@@ -44,8 +44,8 @@ function buyAsset(state, payload) {
   const updatedState = fakeState.map((asset, index) => {
     if (index === indexOfActualAsset) {
       return ({
-        codAtivo: asset.codAtivo,
-        qtdeAtivo: asset.qtdeAtivo + payload.qtdeAtivo,
+        ...asset,
+        QtdeAtivo: asset.QtdeAtivo + payload.QtdeAtivo,
       });
     }
     return asset;
@@ -55,7 +55,7 @@ function buyAsset(state, payload) {
 }
 
 function sellAsset(state, payload) {
-  const fakeState = [...state.myAssets];
+  const fakeState = [...state.userAssets];
   const actualAsset = fakeState
     .find((e) => e.codAtivo === payload.codAtivo);
 
@@ -98,11 +98,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case 'SAVE_CLICKED_ASSET': return { ...state, clickedAsset: action.payload };
     case 'BUY_ASSET': return {
       ...state,
-      myAssets: buyAsset(state, action.payload),
+      userAssets: buyAsset(state, action.payload),
     };
     case 'SELL_ASSET': return {
       ...state,
-      myAssets: sellAsset(state, action.payload),
+      userAssets: sellAsset(state, action.payload),
     };
     default: return state;
   }

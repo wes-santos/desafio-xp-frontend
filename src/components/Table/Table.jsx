@@ -9,7 +9,7 @@ import './style.css';
 export default function Table({ acoes }) {
   const dispatch = useDispatch();
   const history = useNavigate();
-  const { myAssets } = useSelector((state) => state.user);
+  const { userAssets } = useSelector((state) => state.user);
 
   const handleClick = (asset) => {
     dispatch(saveClickedAsset(asset));
@@ -17,9 +17,9 @@ export default function Table({ acoes }) {
   };
 
   const updateAssetsQty = (asset) => {
-    const actualAsset = myAssets.find((e) => e.codAtivo === asset.CodAtivo);
+    const actualAsset = userAssets.find((e) => e.CodAtivo === asset.CodAtivo);
     if (actualAsset) {
-      return actualAsset.qtdeAtivo;
+      return actualAsset.QtdeAtivo;
     }
     return 0;
   };
