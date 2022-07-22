@@ -1,13 +1,9 @@
-import React from 'react';
+// import React from 'react';
 import './App.css';
 import Router from './components/Router/router';
 
 function App() {
-  return (
-    <main>
-      {Router()}
-    </main>
-  );
+  return Router();
 }
 
 export default App;

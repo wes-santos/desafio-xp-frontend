@@ -8,11 +8,15 @@ import { addMoney, subtractMoney } from '../../redux/actions';
 import Modal from '../../components/Modal/Modal';
 
 export default function Conta() {
+  const globalState = useSelector((state) => state.user);
+
+  const inputRef = useRef(null);
+
   const [isWithdrawClicked, setWithdrawClicked] = useState(false);
   const [isDepositClicked, setDepositClick] = useState(true);
-  const globalState = useSelector((state) => state.user);
   const [money, setMoney] = useState('');
   const [isModalVisible, setModalVisibility] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleDepositClick = () => {
@@ -24,8 +28,6 @@ export default function Conta() {
     setWithdrawClicked(true);
     setDepositClick(false);
   };
-
-  const inputRef = useRef(null);
   const saveMoney = () => {
     try {
       if (!(money !== '')) {
