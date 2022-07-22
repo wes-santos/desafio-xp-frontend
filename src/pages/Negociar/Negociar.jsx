@@ -63,12 +63,16 @@ export default function Negociar() {
 
     if (isBuyClicked) {
       dispatch(buyAsset(asset, qty));
-      return dispatch(subtractMoney(buyAmount));
+      setQty(0);
+      dispatch(subtractMoney(buyAmount));
+      return setBuyAmount(asset.Valor);
     }
 
     if (isSellClicked) {
       dispatch(sellAsset(asset, qty));
-      return dispatch(sumMoney(buyAmount));
+      setQty(0);
+      dispatch(sumMoney(buyAmount));
+      return setBuyAmount(asset.Valor);
     }
 
     return false;

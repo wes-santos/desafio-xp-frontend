@@ -32,6 +32,13 @@ describe('Verifica se', () => {
     expect(totalInputEl).toBeInTheDocument();
   });
 
+  it('Não é possível alterar o preço de compra', () => {
+    renderWithRouterAndRedux(<App />, '/negociar');
+    const inputEl = screen.getByLabelText('Preço de compra');
+
+    expect(inputEl).toHaveAttribute('readonly');
+  });
+
   it('Ao clicar no botão de voltar, é feito um redirecionamento para página de ações', () => {
     renderWithRouterAndRedux(<App />, '/negociar');
 
