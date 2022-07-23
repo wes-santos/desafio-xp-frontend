@@ -6,43 +6,46 @@ import '../Table/style.css';
 import * as C from '../Table/style';
 
 export default function TradingTable({
-  Image, CodAtivo, Subtitle, Valor,
+  imagem, codAtivo, subtitulo, valor,
 }) {
-  const { userAssets } = useSelector((state) => state.user);
-  const actualAsset = userAssets.find((asset) => asset.CodAtivo === CodAtivo);
+  const { userAssets, isFetching } = useSelector((state) => state.user);
+  const actualAsset = userAssets.find((asset) => asset.codAtivo === codAtivo);
+
   const getQuantity = () => {
     if (actualAsset) {
-      return actualAsset.QtdeAtivo;
+      return actualAsset.qtdeAtivo;
     }
 
     return 0;
   };
 
   return (
-    <TableContainer>
-      <C.Table>
-        <tbody>
-          <tr>
-            <td>
-              <C.AssetContainer>
-                <div>
-                  {Image && <img src={Image} alt={CodAtivo} />}
-                </div>
-                <div>
-                  <p><strong>{CodAtivo}</strong></p>
-                  <p className="asset-subtitle">{Subtitle && `-| ${Subtitle}`}</p>
-                </div>
-              </C.AssetContainer>
-            </td>
-            <td>
-              <C.PriceContainer>
-                <p className="green" data-testid="asset-quantity">{getQuantity()}</p>
-                <p data-testid="asset-price">{`R$ ${Valor.toString().replace('.', ',')}`}</p>
-              </C.PriceContainer>
-            </td>
-          </tr>
-        </tbody>
-      </C.Table>
-    </TableContainer>
+    isFetching ? <h1>Carregando...</h1> : (
+      <TableContainer>
+        <C.Table>
+          <tbody>
+            <tr>
+              <td>
+                <C.AssetContainer>
+                  <div>
+                    {imagem && <img src={imagem} alt={codAtivo} />}
+                  </div>
+                  <div>
+                    <p><strong>{codAtivo}</strong></p>
+                    <p className="asset-subtitle">{subtitulo && `-| ${subtitulo}`}</p>
+                  </div>
+                </C.AssetContainer>
+              </td>
+              <td>
+                <C.PriceContainer>
+                  <p className="green" data-testid="asset-quantity">{getQuantity()}</p>
+                  <p data-testid="asset-price">{`R$ ${valor ? valor.toString().replace('.', ',') : 0}`}</p>
+                </C.PriceContainer>
+              </td>
+            </tr>
+          </tbody>
+        </C.Table>
+      </TableContainer>
+    )
   );
 }

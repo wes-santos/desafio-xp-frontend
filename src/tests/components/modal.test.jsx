@@ -4,10 +4,11 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouterAndRedux from '../../utils/renderWithRouterAndRedux';
 import App from '../../App';
+import initialState from '../mockData';
 
 describe('Verifica se', () => {
   it('Os elementos esperados são exibidos na tela', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
 
     const sellButtonEl = screen.getByRole('button', { name: 'Vender' });
 
@@ -28,7 +29,7 @@ describe('Verifica se', () => {
   });
 
   it('Botão de fazer depósito redireciona para a página correta', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
 
     const sellButtonEl = screen.getByRole('button', { name: 'Vender' });
 
@@ -48,7 +49,7 @@ describe('Verifica se', () => {
   });
 
   it('Botão de voltar elimina o modal da tela', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
 
     const sellButtonEl = screen.getByRole('button', { name: 'Vender' });
 

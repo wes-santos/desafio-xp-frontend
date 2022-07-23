@@ -4,10 +4,11 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../../App';
 import renderWithRouterAndRedux from '../../utils/renderWithRouterAndRedux';
+import initialState from '../mockData';
 
 describe('Verifica se', () => {
   it('Os elementos estão presentes na tela', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
 
     const h2El = screen.getByRole('heading', { level: 2, name: 'Comprar/Vender Ação' });
     const h3El = screen.getByRole('heading', { level: 3 });
@@ -39,7 +40,7 @@ describe('Verifica se', () => {
   });
 
   it('Não é possível alterar o preço de compra ou o valor estimado', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
     const priceInputEl = screen.getByLabelText('Preço de compra');
     const totalInputEl = screen.getByLabelText('Valor estimado');
 
@@ -48,7 +49,7 @@ describe('Verifica se', () => {
   });
 
   it('Ao clicar no botão de voltar, é feito um redirecionamento para página de ações', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
 
     const buttonEl = screen.getByRole('button', { name: 'Voltar' });
 
@@ -61,7 +62,7 @@ describe('Verifica se', () => {
   });
 
   it('Botões de comprar e vender alternam classes como esperado', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
 
     const buyButtonEl = screen.getByRole('button', { name: 'Comprar' });
     const sellButtonEl = screen.getByRole('button', { name: 'Vender' });
@@ -81,7 +82,7 @@ describe('Verifica se', () => {
   });
 
   it('Botões de alterar a quantidade funcionam conforme o esperado', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
     const addButtonEl = screen.getByRole('button', { name: '+' });
     const removeButtonEl = screen.getByRole('button', { name: '-' });
     const quantityInputEl = screen.getByTestId('quantity-input');
@@ -105,7 +106,7 @@ describe('Verifica se', () => {
   });
 
   it('Valor estimado é atualizado conforme a quantidade é alterada', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
     const quantityInputEl = screen.getByTestId('quantity-input');
     const totalInputEl = screen.getByLabelText('Valor estimado');
     const priceEl = screen.getByTestId('asset-price');
@@ -118,7 +119,7 @@ describe('Verifica se', () => {
   });
 
   it('É possível comprar uma ação caso o dinheiro em conta seja suficiente', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
     const quantityInputEl = screen.getByTestId('quantity-input');
     const totalInputEl = screen.getByLabelText('Valor estimado');
     const priceInputEl = screen.getByLabelText('Preço de compra');
@@ -147,10 +148,10 @@ describe('Verifica se', () => {
   });
 
   it('É possível vender uma ação com sucesso', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
     const quantityInputEl = screen.getByTestId('quantity-input');
     const totalInputEl = screen.getByLabelText('Valor estimado');
-    const priceInputEl = screen.getByLabelText('Preço de compra');
+    // const priceInputEl = screen.getByLabelText('Preço de compra');
     const priceEl = screen.getByTestId('asset-price');
     const userBalanceEl = screen.getByTestId('user-balance');
     const confirmButtonEl = screen.getByRole('button', { name: 'Confirmar' });
@@ -160,26 +161,31 @@ describe('Verifica se', () => {
     const price = Number(priceEl.innerHTML.replace(',', '.').split(' ')[1]);
     const userBalance = Number(userBalanceEl.innerHTML.replace(',', '.'));
 
-    expect(Number(assetQuantityEl.innerHTML)).toEqual(12);
+    expect(assetQuantityEl.innerHTML).toEqual('0');
 
     userEvent.type(quantityInputEl, '2');
 
     expect(totalInputEl).toHaveValue(price * 12);
     expect(userBalanceEl).toBeInTheDocument();
 
+    userEvent.click(confirmButtonEl);
+
+    expect(userBalanceEl.innerHTML).toEqual((userBalance - price * 12).toString().replace('.', ','));
+    expect(assetQuantityEl.innerHTML).toEqual('12');
+
     userEvent.click(sellButton);
+    userEvent.type(quantityInputEl, '2');
+
+    expect(totalInputEl).toHaveValue(price * 12);
 
     userEvent.click(confirmButtonEl);
 
-    expect(userBalanceEl.innerHTML).toEqual((userBalance + (price * 12)).toString().replace('.', ','));
-    expect(Number(assetQuantityEl.innerHTML)).toEqual(0);
-    expect(totalInputEl).toHaveValue(price);
-    expect(quantityInputEl).toHaveValue(1);
-    expect(priceInputEl).toHaveValue(price);
+    expect(userBalanceEl.innerHTML).toEqual('999,99');
+    expect(assetQuantityEl.innerHTML).toEqual('0');
   });
 
   it('Não é possível comprar uma ação quando o dinheiro em conta é insuficiente', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
     const quantityInputEl = screen.getByTestId('quantity-input');
     const totalInputEl = screen.getByLabelText('Valor estimado');
     const priceInputEl = screen.getByLabelText('Preço de compra');
@@ -211,7 +217,7 @@ describe('Verifica se', () => {
   });
 
   it('Não é possível vender uma ação se não a tiver comprado ainda', () => {
-    renderWithRouterAndRedux(<App />, '/negociar');
+    renderWithRouterAndRedux(<App />, '/negociar', initialState);
     const quantityInputEl = screen.getByTestId('quantity-input');
     const totalInputEl = screen.getByLabelText('Valor estimado');
     const priceInputEl = screen.getByLabelText('Preço de compra');

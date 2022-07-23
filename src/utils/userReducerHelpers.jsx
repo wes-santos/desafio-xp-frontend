@@ -22,7 +22,7 @@ export const sumMoney = (state, payload) => {
 export const buyAsset = (state, payload) => {
   const fakeState = [...state.userAssets];
   const actualAsset = fakeState
-    .find((e) => e.CodAtivo === payload.CodAtivo);
+    .find((e) => e.codAtivo === payload.codAtivo);
 
   const isAssetNew = !(actualAsset || false);
 
@@ -36,7 +36,7 @@ export const buyAsset = (state, payload) => {
     if (index === indexOfActualAsset) {
       return ({
         ...asset,
-        QtdeAtivo: asset.QtdeAtivo + payload.QtdeAtivo,
+        qtdeAtivo: parseInt(asset.qtdeAtivo, 10) + parseInt(payload.qtdeAtivo, 10),
       });
     }
     return asset;
@@ -48,13 +48,15 @@ export const buyAsset = (state, payload) => {
 export const sellAsset = (state, payload) => {
   const fakeState = [...state.userAssets];
   const actualAsset = fakeState
-    .find((e) => e.CodAtivo === payload.CodAtivo);
+    .find((e) => e.codAtivo === payload.codAtivo);
 
   const indexOfActualAsset = fakeState.indexOf(actualAsset);
 
   const updatedState = fakeState.map((asset, index) => {
     if (index === indexOfActualAsset) {
-      const isTransactionValid = asset.QtdeAtivo - payload.QtdeAtivo >= 0;
+      const isTransactionValid = (
+        parseInt(asset.qtdeAtivo, 10) - parseInt(payload.qtdeAtivo, 10)
+      ) >= 0;
 
       if (!isTransactionValid) {
         throw new Error('Você não tem ações suficientes para realizar essa transação :(');
@@ -62,9 +64,10 @@ export const sellAsset = (state, payload) => {
 
       return ({
         ...asset,
-        QtdeAtivo: asset.QtdeAtivo - payload.QtdeAtivo,
+        qtdeAtivo: parseInt(asset.qtdeAtivo, 10) - parseInt(payload.qtdeAtivo, 10),
       });
     }
+
     return asset;
   });
 

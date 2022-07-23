@@ -5,25 +5,25 @@ import MGLU3 from '../shared/images/Acoes/MGLU3.jpg';
 import AZUL4 from '../shared/images/Acoes/AZUL4.jpg';
 
 export const minhasAcoes = [{
-  CodAtivo: 'AZUL4',
-  Valor: 12.19,
-  Image: AZUL4,
-  Subtitle: 'Azul Pn N2',
-  QtdeAtivo: 0,
+  codAtivo: 'AZUL4',
+  valor: 12.19,
+  imagem: AZUL4,
+  subtitulo: 'Azul Pn N2',
+  qtdeAtivo: 0,
 },
 {
-  CodAtivo: 'PETR4',
-  Valor: 27.96,
-  Image: PETR4,
-  Subtitle: 'Petrobras Pn N2',
-  QtdeAtivo: 0,
+  codAtivo: 'PETR4',
+  valor: 27.96,
+  imagem: PETR4,
+  subtitulo: 'Petrobras Pn N2',
+  qtdeAtivo: 0,
 },
 {
-  CodAtivo: 'VALE3',
-  Valor: 68.37,
-  Image: VALE3,
-  Subtitle: 'Vale On Nm',
-  QtdeAtivo: 0,
+  codAtivo: 'VALE3',
+  valor: 68.37,
+  imagem: VALE3,
+  subtitulo: 'Vale On Nm',
+  qtdeAtivo: 0,
 }];
 
 export const todasAcoes = [

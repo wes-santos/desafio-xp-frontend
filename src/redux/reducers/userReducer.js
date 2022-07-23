@@ -1,4 +1,4 @@
-import { todasAcoes, minhasAcoes } from '../../data';
+import { minhasAcoes } from '../../data';
 import {
   subMoney,
   sumMoney,
@@ -9,8 +9,16 @@ import {
 const INITIAL_STATE = {
   balance: 999.99,
   clickedAsset: 'PETR4',
-  allAssets: todasAcoes,
+  isFetching: false,
+  allAssets: [{
+    codAtivo: 'PETR4',
+    valor: 27.96,
+    imagem: 'https://i.imgur.com/3rXRnXm.jpg',
+    subtitulo: 'Petrobras Pn N2',
+    qtdeAtivo: 0,
+  }],
   userAssets: minhasAcoes,
+  fetchApiError: false,
 };
 
 // eslint-disable-next-line default-param-last
@@ -37,6 +45,9 @@ const userReducer = (state = INITIAL_STATE, action) => {
       ...state,
       userAssets: sellAsset(state, action.payload),
     };
+    case 'REQUEST_ASSETS': return { ...state, isFetching: true };
+    case 'SAVE_ALL_ASSETS': return { ...state, allAssets: action.payload, isFetching: false };
+    case 'FETCH_API_ERROR': return { ...state, fetchApiError: true };
     default: return state;
   }
 };
