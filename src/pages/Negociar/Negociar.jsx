@@ -13,7 +13,7 @@ import Modal from '../../components/Modal/Modal';
 
 export default function Negociar() {
   const {
-    clickedAsset, balance, allAssets, ifFetched,
+    clickedAsset, balance, allAssets, ifFetched, userAssets,
   } = useSelector((state) => state.user);
   const [qty, setQty] = useState('1');
   const [isBuyClicked, setBuyClick] = useState(true);
@@ -78,10 +78,13 @@ export default function Negociar() {
 
     if (isSellClicked) {
       try {
-        dispatch(sellAsset(asset, qty));
-        setQty(1);
-        dispatch(sumMoney(buyAmount));
-        return setBuyAmount(asset.valor.toString());
+        if (userAssets.some((e) => e.codAtivo === asset.codAtivo)) {
+          dispatch(sellAsset(asset, qty));
+          setQty(1);
+          dispatch(sumMoney(buyAmount));
+          return setBuyAmount(asset.valor.toString());
+        }
+        throw new Error();
       } catch (error) {
         return setIsTransactionNotOk(true);
       }
