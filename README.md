@@ -1,5 +1,5 @@
 # Desafio de Mobile/Front-end XP Inc.
-Este projeto foi desenvolvido como um desafio técnico para o processo seletivo da [XP Inc.](https://xpinc.com) feito em parceria com a [Trybe](https://betrybe.com) para o cargo de Software Engineer I como Desenvolvedor Mobile.
+Este projeto foi desenvolvido como um desafio técnico para o processo seletivo da <a src="https://xpinc.com" target="_blank">XP Inc.</a> feito em parceria com a <a src="https://betrybe.com" target="_blank">Trybe</a> para o cargo de Software Engineer I como Desenvolvedor Mobile.
 
 Nessa lógica, em linhas gerais, ele consiste em um aplicativo desenvolvido com o conceito de Mobile First que simula o investimento em ações com algumas funcionalidades de uma conta digital.
 
@@ -207,10 +207,10 @@ Na ferramenta que abrir, clique no ícone com dois celulares logo ao lado de "El
 
 Após isso, altere a resolução selecionando um dispositivo mobile de sua preferências no menu disponível ou digitando um valor como "360 x 640".
 
-![Tutorial de de como colocar a aplicação em modo responsivo no navegador](Images/modo-responsivo.gif)
+<img src="Images/modo-responsivo.gif" alt="Tutorial de de como colocar a aplicação em modo responsivo no navegador" />
 
 Caso prefira executar a aplicação localmente, siga os seguintes comandos após ter sanado as dependências necessárias (NPM e Git):
-```shell
+```Shell
 git clone git@github.com:wes-santos/desafio-xp-frontend.git
 ```
 ```Shell
@@ -230,12 +230,12 @@ Para isso, digitar 'localhost:3000' na barra de endereços do navegador e aperta
 Independentemente de ter executado a aplicação localmente ou não, a recomendação de utilizar o modo responsivo do navegador para ter uma melhor experiência continua sendo válida.
 
 <h3><a name="3-1">Execução de testes</a></h3>
-* Uma vez que já tenha instalado as dependências do projeto, para rodar todos os testes basta executar o seguinte comando:
-```bash
+<li>Uma vez que já tenha instalado as dependências do projeto, para rodar todos os testes basta executar o seguinte comando:</li>
+```Shell
 npm test
 ```
-- Caso queira checar a cobertura de testes:
-```bash
+<li>Caso queira checar a cobertura de testes:</li>
+```Shell
 npm run test:coverage
 ```
 
