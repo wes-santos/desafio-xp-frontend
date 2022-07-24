@@ -109,3 +109,14 @@ npm run test:coverage
 
 
 ## Referências
+Durante o desenvolvimento do projeto, naturalmente algumas dificuldades foram surgindo, principalmente para execução de ações que ainda não sabia claramente como fazer. Por isso, para algumas features, foram consumidos os seguintes conteúdos:
+- [Criação de uma sidebar](https://www.youtube.com/watch?v=Sl_tsr2gEhE);
+- [Utilização do redux com hooks](https://www.youtube.com/watch?v=7L7MhxjI4PE);
+- [Configuração do configureStore](https://www.youtube.com/watch?v=GpAAQnrxiGQ);
+- [Regex para validação do e-mail](https://www.w3resource.com/javascript/form/email-validation.php);
+- [Hook useRef em inputs](https://www.youtube.com/watch?v=lA8o3kUl1TA);
+- [Uso do handleFocus para selecionar o conteúdo de um input](https://stackoverflow.com/questions/36051883/how-to-select-all-text-in-input-with-reactjs-when-it-focused);
+- [Método clear para o userEvent](https://stackoverflow.com/questions/62258250/why-clear-method-not-exist-on-testing-library-user-event);
+- [Criação de uma função para renderização de um componente com Router e Redux para testes em RTL](https://stackoverflow.com/questions/67017951/how-to-render-with-router-as-well-as-with-redux-for-react-testing-library);
+- [Começar a partir de uma rota específica no RTL](https://v5.reactrouter.com/web/guides/testing);
+- [Criação de script para obter a cobertura de testes](https://stackoverflow.com/questions/57886008/how-to-get-code-coverage-in-react-with-react-testing-library).
