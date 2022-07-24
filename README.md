@@ -32,6 +32,25 @@ Dessa forma, o aplicativo tem as seguintes páginas: login, ações disponíveis
 O aplicativo esta dividido em diferentes telas, sendo que cada uma delas tem uma funcionalidade específica na aplicação. 
 
 <h3><a name="1-1">Tela de login</a></h3>
+<details close>
+<summary>Visualizar imagem</summary>
+  <table>
+    <tr>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="Images/Login-1.jpg" alt="Tela de login com botao de acesso desabilitado" />
+      </td>
+      <td>
+        <img src="Images/Login-2.jpg" alt="Tela de login com botao de acesso habilitado" />
+      </td>
+    </tr>
+  </table>
+</details>
 Ao acessar a aplicação, a pessoa usuária se depara com uma tela de login contendo um campo para digitação do e-mail e um outro para a senha.
 
 Inicialmente, o botão de acesso está desabilitado e não pode ser clicado até que os campos de e-mail e senha sejam preenchidos de forma válida. Desse modo, o e-mail precisa ter um formato válido, como email@email.com, e a senha precisa ter ao menos seis caracteres.
@@ -39,13 +58,31 @@ Inicialmente, o botão de acesso está desabilitado e não pode ser clicado até
 Após preencher os dados corretamente, o botão de acesso é habilitado e ao clicar nele a pessoa usuária é direcionada para a página inicial do aplicativo.
 
 <h3><a name="1-2">Página inicial</a></h3>
+<details close>
+  <summary>Visualizar imagem</summary>
+  <img src="Images/Home.jpg" alt="Página inicial do aplicativo" />
+</details>
 Nesta página, há uma mensagem inicial de boas vindas e um pequeno trecho de texto sugerindo a escolha de um dos atalhos logo abaixo dele para começar a utilizar a aplicação. 
 
 Basicamente, esses atalhos podem levar a pessoa usuária rapidamente para a página de ações ou de depósito. Além disso, há uma opção para ela sair da aplicação rapidamente, caso ela deseje, sendo redirecionada para a tela de login novamente.
 
 No canto superior direito da aplicação, há um ícone no qual a pessoa usuária pode clicar para que um menu lateral seja aberto. Neste menu, há opções para que ela possa ir para qualquer uma das páginas da aplicação de forma fácil e rápida.
+<details close>
+  <summary>Visualizar imagens</summary>
+  <table>
+    <tr><td /><td /></tr>
+    <tr>
+      <td><img src="Images/Sidebar-1.jpg" alt="Primeira tela do menu aberto" /></td>
+      <td><img src="Images/Sidebar-2.jpg" alt=Segunda tela do menu aberto" /></td>
+    </tr>
+  </table>
+</details>
 
 <h3><a name="1-3">Página de ações</a></h3>
+<details close>
+  <summary>Visualizar imagem</summary>
+  <img src="Images/Ações.jpg" alt="Tela de ações" />
+</details>
 Nesta página, é possível visualizar tanto as ações disponíveis para investimento no aplicativo quanto as ações que já foram compradas pela pessoa usuária.
 
 De início, independentemente do e-mail ou senha que utilizar para entrar, a pessoa usuária começa com uma unidade de três ações diferentes: Azul, Petrobras e Vale.
@@ -59,6 +96,16 @@ A quantidade de ações que a pessoa usuária tem de um ativo específico naquel
 Dessa maneira, sempre que comprar ou vender uma ação, este número será alterado para a quantidade de ações que tiver. A imagem é simplesmente uma representação visual da empresa em questão.
 
 <h3><a name="1-4">Página de negociação</a></h3>
+<details close>
+  <summary>Visualizar imagem</summary>
+  <table>
+    <tr><td /><td /></tr>
+    <tr>
+      <td><img src="Images/Negociar-1.jpg" alt="Página de negociação de ações" /></td>
+      <td><img src="Images/Negociar-acoes-erro.jpg" alt="Mensagem de erro exibida na página de ações ao tentar comprar uma ação sem dinheiro" /></td>
+    </tr>
+  </table>
+</details>
 Ao clicar em uma das ações disponíveis na página anterior, a pessoa usuária é direcionada para a página de negociação.
 
 Nesta página, é possível visualizar o valor disponível em conta para investir, o preço da ação que clicou, a quantidade já comprada e algumas coisas a mais.
@@ -80,6 +127,10 @@ O mesmo ocorre caso tente vender um ativo que ainda não comprou, apenas com uma
 Quando o preço é compatível com o valor em conta, a transação é realizada, sua quantidade é alterada e o saldo da conta é subtraído do valor do investimento.
 
 <h3><a name="1-5">Página de depósito e retirada</a></h3>
+<details close>
+  <summary>Visualizar imagem</summary>
+  <img src="Images/Depósito.jpg" alt="Página de depósito e retirada de dinheiro" />
+</details>
 A página de depósito e retirada pode ser acessada na aplicação por meio da página inicial, do menu lateral ou do aviso recebido ao tentar realizar uma transação inválida na página de negociação.
 
 Nela, é possível visualizar o saldo disponível em conta e adicionar mais dinheiro ou remover dinheiro da conta. De início, o botão de depósito vem selecionado e ele indica que a pessoa usuária deseja acrescentar dinheiro ao saldo.
@@ -155,6 +206,8 @@ Como se trata de uma aplicação desenvolvida em Mobile First, é recomendado qu
 Na ferramenta que abrir, clique no ícone com dois celulares logo ao lado de "Elementos". Caso esteja no Firefox, esse ícone se encontra próximo ao botão de fechar o inspetor em sua parte superior direita.
 
 Após isso, altere a resolução selecionando um dispositivo mobile de sua preferências no menu disponível ou digitando um valor como "360 x 640".
+
+![Tutorial de de como colocar a aplicação em modo responsivo no navegador](Images/modo-responsivo.gif)
 
 Caso prefira executar a aplicação localmente, siga os seguintes comandos após ter sanado as dependências necessárias (NPM e Git):
 ```shell
