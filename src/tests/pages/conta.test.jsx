@@ -126,4 +126,33 @@ describe('Verifica se', () => {
     expect(depositButtonEl).toHaveClass('yellow');
     expect(withdrawButtonEl).toHaveClass('light-grey');
   });
+
+  it('Não é possível depositar ou retirar dinheiro com um valor negativo digitado no input', () => {
+    renderWithRouterAndRedux(<App />, '/conta');
+
+    const depositButtonEl = screen.getByRole('button', { name: 'Depósito' });
+    const withdrawButtonEl = screen.getByRole('button', { name: 'Retirada' });
+    const inputEl = screen.getByPlaceholderText('Informe o Valor');
+    const confirmButtonEl = screen.getByRole('button', { name: 'Confirmar' });
+
+    expect(depositButtonEl).toHaveClass('yellow');
+    userEvent.type(inputEl, '-10');
+
+    expect(inputEl).toHaveValue(-10);
+
+    userEvent.click(confirmButtonEl);
+
+    const modalMessageEl = screen.getByText('O valor digitado precisa ser maior do que zero');
+
+    expect(modalMessageEl).toBeInTheDocument();
+
+    userEvent.click(screen.getAllByRole('button')[1]);
+
+    userEvent.click(withdrawButtonEl);
+
+    userEvent.click(confirmButtonEl);
+
+    expect(inputEl).toHaveValue(-10);
+    expect(screen.getByText('O valor digitado precisa ser maior do que zero')).toBeInTheDocument();
+  });
 });

@@ -33,8 +33,9 @@ export const MainContainer = styled.div`
 
   input {
     border: solid 1px rgb(200, 200, 200);
-    border-radius: 6px;
+    border-radius: 2px;
     padding: 10px;
+    text-align: center;
     width: calc(100% - 30px);
 
     &::placeholder {
