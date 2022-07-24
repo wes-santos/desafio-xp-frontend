@@ -7,24 +7,45 @@ Somado a isso, seu design foi inspirado no aplicativo de investimentos da própr
 
 Dessa forma, o aplicativo tem as seguintes páginas: login, ações disponíveis, compra e venda de ações, página de conta com opção de depósito ou retirada de dinheiro e uma página inicial simples.
 
-## Como a aplicação funciona?
+## Tabela de conteúdos
+- [Como a aplicação funciona?](#1)
+  - [Tela de login](#1-1)
+  - [Página inicial](#1-2)
+  - [Página de ações](#1-3)
+  - [Página de negociação](#1-4)
+  - [Página de depósito e retirada](#1-5)
+- [Tecnologias usadas](#2)
+  -  [React](#2-1)
+  -  [React Router](#2-2)
+  -  [React Testing Library](#2-3)
+  -  [Redux](#2-4)
+  -  [Styled Components](#2-5)
+  -  [Axios](#2-6)
+  -  [ESLint](#2-7)
+  -  [JavaScript ES6](#2-8)
+- [Como executar o projeto](#3)
+  -  [Execução de testes](#3-1)
+- [Próximos passos pensados para a continuidade do desenvolvimento](#4)
+- [Referências](#5)
+
+<h2><a name="1">Como a aplicação funciona?</a></h2>
 O aplicativo esta dividido em diferentes telas, sendo que cada uma delas tem uma funcionalidade específica na aplicação. 
 
-### Tela de login
+<h3><a name="1-1">Tela de login</a></h3>
 Ao acessar a aplicação, a pessoa usuária se depara com uma tela de login contendo um campo para digitação do e-mail e um outro para a senha.
 
 Inicialmente, o botão de acesso está desabilitado e não pode ser clicado até que os campos de e-mail e senha sejam preenchidos de forma válida. Desse modo, o e-mail precisa ter um formato válido, como email@email.com, e a senha precisa ter ao menos seis caracteres.
 
 Após preencher os dados corretamente, o botão de acesso é habilitado e ao clicar nele a pessoa usuária é direcionada para a página inicial do aplicativo.
 
-### Página inicial
+<h3><a name="1-2">Página inicial</a></h3>
 Nesta página, há uma mensagem inicial de boas vindas e um pequeno trecho de texto sugerindo a escolha de um dos atalhos logo abaixo dele para começar a utilizar a aplicação. 
 
 Basicamente, esses atalhos podem levar a pessoa usuária rapidamente para a página de ações ou de depósito. Além disso, há uma opção para ela sair da aplicação rapidamente, caso ela deseje, sendo redirecionada para a tela de login novamente.
 
 No canto superior direito da aplicação, há um ícone no qual a pessoa usuária pode clicar para que um menu lateral seja aberto. Neste menu, há opções para que ela possa ir para qualquer uma das páginas da aplicação de forma fácil e rápida.
 
-### Página de ações
+<h3><a name="1-3">Página de ações</a></h3>
 Nesta página, é possível visualizar tanto as ações disponíveis para investimento no aplicativo quanto as ações que já foram compradas pela pessoa usuária.
 
 De início, independentemente do e-mail ou senha que utilizar para entrar, a pessoa usuária começa com uma unidade de três ações diferentes: Azul, Petrobras e Vale.
@@ -37,7 +58,7 @@ A quantidade de ações que a pessoa usuária tem de um ativo específico naquel
 
 Dessa maneira, sempre que comprar ou vender uma ação, este número será alterado para a quantidade de ações que tiver. A imagem é simplesmente uma representação visual da empresa em questão.
 
-### Página de negociação
+<h3><a name="1-4">Página de negociação</a></h3>
 Ao clicar em uma das ações disponíveis na página anterior, a pessoa usuária é direcionada para a página de negociação.
 
 Nesta página, é possível visualizar o valor disponível em conta para investir, o preço da ação que clicou, a quantidade já comprada e algumas coisas a mais.
@@ -58,7 +79,7 @@ O mesmo ocorre caso tente vender um ativo que ainda não comprou, apenas com uma
 
 Quando o preço é compatível com o valor em conta, a transação é realizada, sua quantidade é alterada e o saldo da conta é subtraído do valor do investimento.
 
-### Página de depósito e retirada
+<h3><a name="1-5">Página de depósito e retirada</a></h3>
 A página de depósito e retirada pode ser acessada na aplicação por meio da página inicial, do menu lateral ou do aviso recebido ao tentar realizar uma transação inválida na página de negociação.
 
 Nela, é possível visualizar o saldo disponível em conta e adicionar mais dinheiro ou remover dinheiro da conta. De início, o botão de depósito vem selecionado e ele indica que a pessoa usuária deseja acrescentar dinheiro ao saldo.
@@ -67,8 +88,8 @@ Para isso, basta inserir o valor desejado no campo indicado e depois clicar no b
 
 Ao clicar no botão de voltar, a pessoa usuária é redirecionada para a página inicial do aplicativo.
 
-## Tecnologias usadas
-### React
+<h2><a name="2">Tecnologias usadas</a></h2>
+<h3><a name="2-1">React</a></h3>
 A escolha do React foi feita pensando principalmente em escalabilidade, agilidade e recursos disponíveis. Basicamente, a componentização me permitiu uma boa organização do código, o que o tornou mais limpo.
 
 Somado a isso, o fato de ter a aplicação dividida em componentes e páginas permite que eu crie novas funcionalidades de maneira muito mais rápida, uma vez que eles podem ser reaproveitados devido à sua lógica de implementação.
@@ -81,19 +102,19 @@ Um último ponto pensado para a escolha de React foi a existência do React Nati
 
 Logo, com base nesta aplicação, seria mais ágil criá-la para um dispositivo móvel sem perder muito em performance, tendo em vista, ainda, que ela foi desenvolvida com o conceito Mobile First.
 
-### React Router
+<h3><a name="2-2">React Router</a></h3>
 Desde que conheci o React Router me apaixonei por essa ferramenta. Decidi utilizá-lo na aplicação para que ela tivesse uma navegação mais rápida e fluída.
 
 Em outras palavras, optei pelo React Router para que eu pudesse criar uma Single Page Application com o uso de um pacote que conheço, tem boas funcionalidades e gosto de utilizar.
 
-### React Testing Library
+<h3><a name="2-3">React Testing Library</a></h3>
 Optei por utilizar o React Test Library para criação dos testes unitários automatizados da aplicação. Basicamente, criar a aplicação sem testá-la nunca foi uma hipótese no planejamento do projeto e utilizar o RTL para isso me soou como a melhor escolha principalmente pelo foco no usuário.
 
 Por meio do RTL, consegui testar meu código com uma visão de usuário, optando sempre que possível por queries focadas em acessibilidade para seleção de elementos. Cobri grande parte do código com esses testes.
 
 De início, tinha o desejo de realizar testes automatizados E2E com o Cypress para a aplicação também, mas como seria a primeira vez utilizando a ferramenta e o prazo era relativamente curto, decidi focar em fazer bons testes unitários e desenvolver uma aplicação front-end completa.
 
-### Redux
+<h3><a name="2-4">Redux</a></h3>
 No começo era tentador a escolha do ContextAPI para o gerenciamento do estado por vê-lo como uma ferramenta mais fácil de ser utilizada, principalmente em aplicações pequenas. Dado o tamanho do aplicativo que iria criar, penso ainda que poderia ter sido uma boa escolha.
 
 Contudo, optei por Redux pensando em organização de código e escalabilidade. Nesse sentido, vejo o Redux como uma ferramenta mais completa para a gestão de estado da aplicação e acredito que em uma aplicação grande ele tenha uma adaptação melhor do que o Context.
@@ -102,31 +123,31 @@ Embora a aplicação que eu tinha para desenvolver fosse relativamente pequena, 
 
 Nunca havia utilizado o Redux com Hooks e foi um desafio inicial aprender a configurá-lo para isso. Ainda que eu tenha descoberto no caminho que existe uma outra maneira de configurar o Redux por meio do Toolkit, optei por uma forma mais próxima da que eu estava familiarizado para evitar problemas durante o desenvolvimento e adqurir agilidade na produção.
 
-### Styled Components
+<h3><a name="2-5">Styled Components</a></h3>
 Como minha ideia inicial era ter um visual próximo ao do aplicativo da XP Investimentos, era claro para mim que eu teria que criar o CSS da aplicação e não utilizar alguma biblioteca ou framework como Bootstrap.
 
 Tendo isso em mente, pensei em utilizar o Styled Components ou o Tailwind CSS, uma vez que eles agilizariam o trabalho. Afinal, embora goste muito do princípio KISS, o tempo não estava completamente ao meu favor.
 
 Como não tenho experiência com Tailwind CSS, optei pelo Styled Components para criar toda a estilização da aplicação. Por meio dele, tenho maior facilidade em manter o escopo das estilizações bem como padronizá-las, além de já ter o Sass integrado, algo que facilita muito.
 
-### Axios
+<h3><a name="2-6">Axios</a></h3>
 Consumir dados de uma API é algo extremamente comum em uma aplicação front-end e estava em meus planos criar uma API simples para utilizar neste projeto.
 
 Embora nunca tivesse utilizado o Axios antes, o conhecia e sabia que era uma ferramenta que facilitava e agilizava esse processo. Com isso em mente, optei por utilizá-lo para realizar as requisições necessárias.
 
-### ESLint
+<h3><a name="2-7">ESLint</a></h3>
 Pensando em manter uma boa qualidade de código, optei por instalar o [ESLint do Airbnb](https://github.com/airbnb/javascript) no projeto desde o início.
 
 Ainda que a maior parte das práticas estabelecidas pela ferramenta tenham fixado em minha cabeça de tanto segui-las, gosto de utilizar o ESLint em projetos para garantir que estou seguindo bons padrões.
 
 Em soma, eu utilizo o ESLint como formator padrão e, por isso, ele agiliza bastante o meu processo de produção, algo que também influencia o fato de eu sempre instalá-lo.
 
-### JavaScript ES6
+<h3><a name="2-8">JavaScript ES6</a></h3>
 Optei por desenvolver a aplicação em JavaScript ES6 por agilidade. Dada a minha formação, tenho maior familiaridade e fluência com essa linguagem e com o prazo que eu tinha para desenvolver o aplicativo me pareceu a escolha mais correta a se fazer.
 
 Pensei em desenvolver a aplicação em TypeScript, por ver diversas vantagens nesta linguagem. Contudo, nunca utilizei TypeScript com React e sabia que não teria muito tempo para investir buscando sobre como tipar determinados elementos e resolver possíveis problemas que surgissem pela inexperiência.
 
-## Como executar o projeto?
+<h2><a name="3">Como executar o projeto?</a></h2>
 Para executar este projeto localmente você precisará ter o Node Package Manager (NPM) na versão 16 e o Git.
 
 Sanada essas dependências, basta executar os seguintes comandos no terminal:
@@ -147,7 +168,7 @@ Após a execução dos comandos citados acima, a aplicação React deve rodar na
 
 Para isso, digitar 'localhost:3000' na barra de endereços do navegador e apertar enter. Se tudo correu como o esperado, você verá a aplicação em execução e ela está pronta para ser utilizada.
 
-## Execução de testes
+<h3><a name="3-1">Execução de testes</a></h3>
 * Uma vez que já tenha instalado as dependências do projeto, para rodar todos os testes basta executar o seguinte comando:
 ```bash
 npm test
@@ -157,7 +178,7 @@ npm test
 npm run test:coverage
 ```
 
-## Próximos passos pensados para a continuidade do desenvolvimento
+<h2><a name="4">Próximos passos pensados para a continuidade do desenvolvimento</a></h2>
 Pensando em uma possível evolução deste projeto, o menu foi feito com uma seção para investimentos que tem dentro ações.
 
 Nessa lógica, essa escolha foi feita para que novos ativos possam ser inseridos facilmente no futuro, como títulos de renda fixa ou outros itens de renda variável.
@@ -172,7 +193,7 @@ Outro recurso pensado durante o desenvolvimento seria a limitação de ativos ex
 
 Por fim, os últimos pontos pensados para evolução no momento seria o uso de TypeScript em toda a aplicação e um back-end com mais funcionalidades para criação de uma melhor integração no front-end, bem como adição de recursos, como o cadastro de novas pessoas usuárias.
 
-## Referências
+<h2><a name="5">Referências</a></h2>
 Durante o desenvolvimento do projeto, naturalmente algumas dificuldades foram surgindo, principalmente para execução de ações que ainda não sabia claramente como fazer.
 
 Por isso, para algumas features, foram consumidos os seguintes conteúdos:
