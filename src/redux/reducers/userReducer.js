@@ -1,4 +1,4 @@
-import { minhasAcoes } from '../../data';
+import minhasAcoes from '../../data';
 import {
   subMoney,
   sumMoney,
