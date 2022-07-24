@@ -7,7 +7,6 @@ export const PrimaryCard = styled.button`
   border: solid 1px #ffc709;
   height: 120px;
   margin-top: 10px;
-  transition: all 0.2s ease-in-out;
   width: 48%;
 
   p {
@@ -16,25 +15,6 @@ export const PrimaryCard = styled.button`
 
   h3 {
     color: #1c1c1c!important;
-  }
-
-  &:hover {
-    background-color: #1c1c1c;
-    border-color: #1c1c1c;
-    
-    h3 {
-      color: white!important;
-    }
-
-    p {
-      color: white!important;
-    }
-  }
-
-  &:active {
-    background-color: #6f6f6f;
-    border-color: #6f6f6f;
-    color: white;
   }
 `;
 
