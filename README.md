@@ -69,31 +69,83 @@ Ao clicar no botão de voltar, a pessoa usuária é redirecionada para a página
 
 ## Tecnologias usadas
 ### React
+A escolha do React foi feita pensando principalmente em escalabilidade, agilidade e recursos disponíveis. Basicamente, a componentização me permitiu uma boa organização do código, o que o tornou mais limpo.
 
+Somado a isso, o fato de ter a aplicação dividida em componentes e páginas permite que eu crie novas funcionalidades de maneira muito mais rápida, uma vez que eles podem ser reaproveitados devido à sua lógica de implementação.
+
+Para inserir um novo tipo de ativo à ferramenta, por exemplo, bastaria criar uma nova rota, uma nova entrada no menu lateral que está componentizado e reutilizar os componentes criados para deixar essa página semelhante a de ações.
+
+Ademais, o React permitiu a utilização de ferramentas que facilitaram, agilizaram e melhoraram muito o desenvolvimento, como o React Router e o React Testing Library. Outros pontos que não podem ser deixados de lado para a escolha do React é a utilização de JSX, hooks e estado.
+
+Um último ponto pensado para a escolha de React foi a existência do React Native. Embora não tenha utilizado React Native e ainda não tenha muito conhecimento sobre ele, sei que é uma linguagem de sintaxe similar ao React que permite a criação de aplicações nativas para dispositivos Android e iOS.
+
+Logo, com base nesta aplicação, seria mais ágil criá-la para um dispositivo móvel sem perder muito em performance, tendo em vista, ainda, que ela foi desenvolvida com o conceito Mobile First.
 
 ### React Router
+Desde que conheci o React Router me apaixonei por essa ferramenta. Decidi utilizá-lo na aplicação para que ela tivesse uma navegação mais rápida e fluída.
 
+Em outras palavras, optei pelo React Router para que eu pudesse criar uma Single Page Application com o uso de um pacote que conheço, tem boas funcionalidades e gosto de utilizar.
 
 ### React Testing Library
+Optei por utilizar o React Test Library para criação dos testes unitários automatizados da aplicação. Basicamente, criar a aplicação sem testá-la nunca foi uma hipótese no planejamento do projeto e utilizar o RTL para isso me soou como a melhor escolha principalmente pelo foco no usuário.
 
+Por meio do RTL, consegui testar meu código com uma visão de usuário, optando sempre que possível por queries focadas em acessibilidade para seleção de elementos. Cobri grande parte do código com esses testes.
+
+De início, tinha o desejo de realizar testes automatizados E2E com o Cypress para a aplicação também, mas como seria a primeira vez utilizando a ferramenta e o prazo era relativamente curto, decidi focar em fazer bons testes unitários e desenvolver uma aplicação front-end completa.
 
 ### Redux
+No começo era tentador a escolha do ContextAPI para o gerenciamento do estado por vê-lo como uma ferramenta mais fácil de ser utilizada, principalmente em aplicações pequenas. Dado o tamanho do aplicativo que iria criar, penso ainda que poderia ter sido uma boa escolha.
 
+Contudo, optei por Redux pensando em organização de código e escalabilidade. Nesse sentido, vejo o Redux como uma ferramenta mais completa para a gestão de estado da aplicação e acredito que em uma aplicação grande ele tenha uma adaptação melhor do que o Context.
+
+Embora a aplicação que eu tinha para desenvolver fosse relativamente pequena, a fiz pensando em escalabilidade e não faria sentido deixar o Redux de lado tendo esse ponto.
+
+Nunca havia utilizado o Redux com Hooks e foi um desafio inicial aprender a configurá-lo para isso. Ainda que eu tenha descoberto no caminho que existe uma outra maneira de configurar o Redux por meio do Toolkit, optei por uma forma mais próxima da que eu estava familiarizado para evitar problemas durante o desenvolvimento e adqurir agilidade na produção.
 
 ### Styled Components
+Como minha ideia inicial era ter um visual próximo ao do aplicativo da XP Investimentos, era claro para mim que eu teria que criar o CSS da aplicação e não utilizar alguma biblioteca ou framework como Bootstrap.
 
+Tendo isso em mente, pensei em utilizar o Styled Components ou o Tailwind CSS, uma vez que eles agilizariam o trabalho. Afinal, embora goste muito do princípio KISS, o tempo não estava completamente ao meu favor.
+
+Como não tenho experiência com Tailwind CSS, optei pelo Styled Components para criar toda a estilização da aplicação. Por meio dele, tenho maior facilidade em manter o escopo das estilizações bem como padronizá-las, além de já ter o Sass integrado, algo que facilita muito.
 
 ### Axios
+Consumir dados de uma API é algo extremamente comum em uma aplicação front-end e estava em meus planos criar uma API simples para utilizar neste projeto.
 
+Embora nunca tivesse utilizado o Axios antes, o conhecia e sabia que era uma ferramenta que facilitava e agilizava esse processo. Com isso em mente, optei por utilizá-lo para realizar as requisições necessárias.
 
 ### ESLint
+Pensando em manter uma boa qualidade de código, optei por instalar o [ESLint do Airbnb](https://github.com/airbnb/javascript) no projeto desde o início.
 
+Ainda que a maior parte das práticas estabelecidas pela ferramenta tenham fixado em minha cabeça de tanto segui-las, gosto de utilizar o ESLint em projetos para garantir que estou seguindo bons padrões.
+
+Em soma, eu utilizo o ESLint como formator padrão e, por isso, ele agiliza bastante o meu processo de produção, algo que também influencia o fato de eu sempre instalá-lo.
 
 ### JavaScript ES6
+Optei por desenvolver a aplicação em JavaScript ES6 por agilidade. Dada a minha formação, tenho maior familiaridade e fluência com essa linguagem e com o prazo que eu tinha para desenvolver o aplicativo me pareceu a escolha mais correta a se fazer.
 
+Pensei em desenvolver a aplicação em TypeScript, por ver diversas vantagens nesta linguagem. Contudo, nunca utilizei TypeScript com React e sabia que não teria muito tempo para investir buscando sobre como tipar determinados elementos e resolver possíveis problemas que surgissem pela inexperiência.
 
 ## Como executar o projeto?
+Para executar este projeto localmente você precisará ter o Node Package Manager (NPM) na versão 16 e o Git.
 
+Sanada essas dependências, basta executar os seguintes comandos no terminal:
+```shell
+git clone git@github.com:wes-santos/desafio-xp-frontend.git
+```
+```Shell
+cd desafio-xp-frontend
+```
+```Shell
+npm install
+```
+```Shell
+npm start
+```
+
+Após a execução dos comandos citados acima, a aplicação React deve rodar nativamente na porta 3000 da sua máquina, caso ela não esteja sendo utilizada por algum outro serviço. Então, basta acessá-la por meio de seu navegador, caso ele não seja aberto automaticamente.
+
+Para isso, digitar 'localhost:3000' na barra de endereços do navegador e apertar enter. Se tudo correu como o esperado, você verá a aplicação em execução e ela está pronta para ser utilizada.
 
 ## Execução de testes
 * Uma vez que já tenha instalado as dependências do projeto, para rodar todos os testes basta executar o seguinte comando:
@@ -124,13 +176,18 @@ Por fim, os últimos pontos pensados para evolução no momento seria o uso de T
 Durante o desenvolvimento do projeto, naturalmente algumas dificuldades foram surgindo, principalmente para execução de ações que ainda não sabia claramente como fazer.
 
 Por isso, para algumas features, foram consumidos os seguintes conteúdos:
+- [Consulta para instalação do ESLint Airbnb](https://medium.com/@Tunmise/set-up-eslint-with-airbnb-style-guide-in-5-minutes-d7b4cc5707f8);
 - [Criação de uma sidebar](https://www.youtube.com/watch?v=Sl_tsr2gEhE);
 - [Utilização do redux com hooks](https://www.youtube.com/watch?v=7L7MhxjI4PE);
 - [Configuração do configureStore](https://www.youtube.com/watch?v=GpAAQnrxiGQ);
+- [Utilização do Thunk com o configureStore](https://stackoverflow.com/questions/69502147/changing-from-redux-to-redux-toolkit);
 - [Regex para validação do e-mail](https://www.w3resource.com/javascript/form/email-validation.php);
 - [Hook useRef em inputs](https://www.youtube.com/watch?v=lA8o3kUl1TA);
 - [Uso do handleFocus para selecionar o conteúdo de um input](https://stackoverflow.com/questions/36051883/how-to-select-all-text-in-input-with-reactjs-when-it-focused);
 - [Método clear para o userEvent](https://stackoverflow.com/questions/62258250/why-clear-method-not-exist-on-testing-library-user-event);
 - [Criação de uma função para renderização de um componente com Router e Redux para testes em RTL](https://stackoverflow.com/questions/67017951/how-to-render-with-router-as-well-as-with-redux-for-react-testing-library);
 - [Começar a partir de uma rota específica no RTL](https://v5.reactrouter.com/web/guides/testing);
-- [Criação de script para obter a cobertura de testes](https://stackoverflow.com/questions/57886008/how-to-get-code-coverage-in-react-with-react-testing-library).
+- [Criação de script para obter a cobertura de testes](https://stackoverflow.com/questions/57886008/how-to-get-code-coverage-in-react-with-react-testing-library);
+- [Resolução de problema que tive com Cors no momento de criação da minha API](https://cursos.alura.com.br/forum/topico-erro-cors-policy-98330);
+- [Conhecimento inicial do Axios](https://blog.rocketseat.com.br/axios-um-cliente-http-full-stack/);
+- [Buscas específicas sobre o Axios, como uso do async await](https://github.com/axios/axios#features).
