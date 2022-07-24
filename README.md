@@ -1,4 +1,4 @@
-# Desafio de Mobile/Front-end XP Inc.
+<h1>Desafio de Mobile/Front-end XP Inc.</h1>
 <p>Este projeto foi desenvolvido como um desafio técnico para o processo seletivo da <a href="https://xpinc.com" target="_blank">XP Inc.</a> feito em parceria com a <a href="https://betrybe.com" target="_blank">Trybe</a> para o cargo de Software Engineer I como Desenvolvedor Mobile.</p>
 
 <p>Nessa lógica, em linhas gerais, ele consiste em um aplicativo desenvolvido com o conceito de Mobile First que simula o investimento em ações com algumas funcionalidades de uma conta digital.</p>
@@ -7,26 +7,34 @@
 
 <p>Dessa forma, o aplicativo tem as seguintes páginas: login, ações disponíveis, compra e venda de ações, página de conta com opção de depósito ou retirada de dinheiro e uma página inicial simples.</p>
 
-## Tabela de conteúdos
-- [Como a aplicação funciona?](#1)
-  - [Tela de login](#1-1)
-  - [Página inicial](#1-2)
-  - [Página de ações](#1-3)
-  - [Página de negociação](#1-4)
-  - [Página de depósito e retirada](#1-5)
-- [Tecnologias usadas](#2)
-  -  [React](#2-1)
-  -  [React Router](#2-2)
-  -  [React Testing Library](#2-3)
-  -  [Redux](#2-4)
-  -  [Styled Components](#2-5)
-  -  [Axios](#2-6)
-  -  [ESLint](#2-7)
-  -  [JavaScript ES6](#2-8)
-- [Como executar o projeto](#3)
-  -  [Execução de testes](#3-1)
-- [Próximos passos pensados para a continuidade do desenvolvimento](#4)
-- [Referências](#5)
+<h2>Tabela de conteúdos</h2>
+<ul>
+  <li><a href="#1">Como a aplicação funciona?</a></li>
+    <ul>
+      <li><a href="#1-1">Tela de login</a></li>
+      <li><a href="#1-2">Página inicial</a></li>
+      <li><a href="#1-3">Página de ações</a></li>
+      <li><a href="#1-4">Página de negociação</a></li>
+      <li><a href="#1-5">Página de depósito e retirada</a></li>
+    </ul>
+  <li><a href="#2">Tecnologias usadas</a></li>
+    <ul>
+      <li><a href="#2-1">React</a></li>
+      <li><a href="#2-2">React Router</a></li>
+      <li><a href="#2-3">React Testing Library</a></li>
+      <li><a href="#2-4">Redux</a></li>
+      <li><a href="#2-5">Styled Components</a></li>
+      <li><a href="#2-6">Axios</a></li>
+      <li><a href="#2-7">ESLint</a></li>
+      <li><a href="#2-8">JavaScript ES6</a></li>
+    </ul>
+  <li><a href="#3">Como executar o projeto</a></li>
+    <ul>
+      <li><a href="#3-1">Execução de testes</a></li>
+    </ul>
+  <li><a href="#4">Próximos passos pensados para a continuidade do desenvolvimento</a></li>
+  <li><a href="#5">Referências</a></li>
+</ul>
 
 <h2><a name="1">Como a aplicação funciona?</a></h2>
 <p>O aplicativo esta dividido em diferentes telas, sendo que cada uma delas tem uma funcionalidade específica na aplicação.</p>
@@ -262,18 +270,20 @@ npm run test:coverage
 <p>Durante o desenvolvimento do projeto, naturalmente algumas dificuldades foram surgindo, principalmente para execução de ações que ainda não sabia claramente como fazer.</p>
 
 Por isso, para algumas features, foram consumidos os seguintes conteúdos:
-- [Consulta para instalação do ESLint Airbnb](https://medium.com/@Tunmise/set-up-eslint-with-airbnb-style-guide-in-5-minutes-d7b4cc5707f8);
-- [Criação de uma sidebar](https://www.youtube.com/watch?v=Sl_tsr2gEhE);
-- [Utilização do redux com hooks](https://www.youtube.com/watch?v=7L7MhxjI4PE);
-- [Configuração do configureStore](https://www.youtube.com/watch?v=GpAAQnrxiGQ);
-- [Utilização do Thunk com o configureStore](https://stackoverflow.com/questions/69502147/changing-from-redux-to-redux-toolkit);
-- [Regex para validação do e-mail](https://www.w3resource.com/javascript/form/email-validation.php);
-- [Hook useRef em inputs](https://www.youtube.com/watch?v=lA8o3kUl1TA);
-- [Uso do handleFocus para selecionar o conteúdo de um input](https://stackoverflow.com/questions/36051883/how-to-select-all-text-in-input-with-reactjs-when-it-focused);
-- [Método clear para o userEvent](https://stackoverflow.com/questions/62258250/why-clear-method-not-exist-on-testing-library-user-event);
-- [Criação de uma função para renderização de um componente com Router e Redux para testes em RTL](https://stackoverflow.com/questions/67017951/how-to-render-with-router-as-well-as-with-redux-for-react-testing-library);
-- [Começar a partir de uma rota específica no RTL](https://v5.reactrouter.com/web/guides/testing);
-- [Criação de script para obter a cobertura de testes](https://stackoverflow.com/questions/57886008/how-to-get-code-coverage-in-react-with-react-testing-library);
-- [Resolução de problema que tive com Cors no momento de criação da minha API](https://cursos.alura.com.br/forum/topico-erro-cors-policy-98330);
-- [Conhecimento inicial do Axios](https://blog.rocketseat.com.br/axios-um-cliente-http-full-stack/);
-- [Buscas específicas sobre o Axios, como uso do async await](https://github.com/axios/axios#features).
+<ul>
+<li><a href="https://medium.com/@Tunmise/set-up-eslint-with-airbnb-style-guide-in-5-minutes-d7b4cc5707f8" target="_blank">Consulta para instalação do ESLint Airbnb</a>;</li>
+<li><a href="https://www.youtube.com/watch?v=Sl_tsr2gEhE" target="_blank">Criação de uma sidebar</a>;</li>
+<li><a href="https://www.youtube.com/watch?v=7L7MhxjI4PE" target="_blank">Utilização do redux com hooks</a>;</li>
+<li><a href="https://www.youtube.com/watch?v=GpAAQnrxiGQ" target="_blank">Configuração do configureStore</a>;</li>
+<li><a href="https://stackoverflow.com/questions/69502147/changing-from-redux-to-redux-toolkit" target="_blank">Utilização do Thunk com o configureStore</a>;</li>
+<li><a href="https://www.w3resource.com/javascript/form/email-validation.php" target="_blank">Regex para validação do e-mail</a>;</li>
+<li><a href="https://www.youtube.com/watch?v=lA8o3kUl1TA" target="_blank">Hook useRef em inputs</a>;</li>
+<li><a href="https://stackoverflow.com/questions/36051883/how-to-select-all-text-in-input-with-reactjs-when-it-focused" target="_blank">Uso do handleFocus para selecionar o conteúdo de um input</a>;</li>
+<li><a href="https://stackoverflow.com/questions/62258250/why-clear-method-not-exist-on-testing-library-user-event" target="_blank">Método clear para o userEvent</a>;</li>
+<li><a href="https://stackoverflow.com/questions/67017951/how-to-render-with-router-as-well-as-with-redux-for-react-testing-library" target="_blank">Criação de uma função para renderização de um componente com Router e Redux para testes em RTL</a>;</li>
+<li><a href="https://v5.reactrouter.com/web/guides/testing" target="_blank">Começar a partir de uma rota específica no RTL</a>;</li>
+<li><a href="https://stackoverflow.com/questions/57886008/how-to-get-code-coverage-in-react-with-react-testing-library" target="_blank">Criação de script para obter a cobertura de testes</a>;</li>
+<li><a href="https://cursos.alura.com.br/forum/topico-erro-cors-policy-98330" target="_blank">Resolução de problema que tive com Cors no momento de criação da minha API</a>;</li>
+<li><a href="https://blog.rocketseat.com.br/axios-um-cliente-http-full-stack/" target="_blank">Conhecimento inicial do Axios</a>;</li>
+<li><a href="https://github.com/axios/axios#features" target="_blank">Buscas específicas sobre o Axios, como uso do async await</a>.</li>
+</ul>
