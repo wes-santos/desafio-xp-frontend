@@ -148,9 +148,15 @@ Optei por desenvolver a aplicação em JavaScript ES6 por agilidade. Dada a minh
 Pensei em desenvolver a aplicação em TypeScript, por ver diversas vantagens nesta linguagem. Contudo, nunca utilizei TypeScript com React e sabia que não teria muito tempo para investir buscando sobre como tipar determinados elementos e resolver possíveis problemas que surgissem pela inexperiência.
 
 <h2><a name="3">Como executar o projeto?</a></h2>
-Para executar este projeto localmente você precisará ter o Node Package Manager (NPM) na versão 16 e o Git.
+Para executar este projeto localmente você precisará ter o Node Package Manager (NPM) na versão 16 e o Git. Caso prefira, você pode utilizar a ferramenta normalmente por meio do [site em que foi realizado o seu deploy](https://wes-santos-xp.netlify.app) sem que precise instalar nada.
 
-Sanada essas dependências, basta executar os seguintes comandos no terminal:
+Como se trata de uma aplicação desenvolvida em Mobile First, é recomendado que você a acesse por meio de um celular ou que utilize o recurso de responsividade do navegador. Para isso, clique com o botão direito do mouse na tela e depois em inspecionar.
+
+Na ferramenta que abrir, clique no ícone com dois celulares logo ao lado de "Elementos". Caso esteja no Firefox, esse ícone se encontra próximo ao botão de fechar o inspetor em sua parte superior direita.
+
+Após isso, altere a resolução selecionando um dispositivo mobile de sua preferências no menu disponível ou digitando um valor como "360 x 640".
+
+Caso prefira executar a aplicação localmente, siga os seguintes comandos após ter sanado as dependências necessárias (NPM e Git):
 ```shell
 git clone git@github.com:wes-santos/desafio-xp-frontend.git
 ```
@@ -167,6 +173,8 @@ npm start
 Após a execução dos comandos citados acima, a aplicação React deve rodar nativamente na porta 3000 da sua máquina, caso ela não esteja sendo utilizada por algum outro serviço. Então, basta acessá-la por meio de seu navegador, caso ele não seja aberto automaticamente.
 
 Para isso, digitar 'localhost:3000' na barra de endereços do navegador e apertar enter. Se tudo correu como o esperado, você verá a aplicação em execução e ela está pronta para ser utilizada.
+
+Independentemente de ter executado a aplicação localmente ou não, a recomendação de utilizar o modo responsivo do navegador para ter uma melhor experiência continua sendo válida.
 
 <h3><a name="3-1">Execução de testes</a></h3>
 * Uma vez que já tenha instalado as dependências do projeto, para rodar todos os testes basta executar o seguinte comando:
