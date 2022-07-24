@@ -1,12 +1,18 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import * as C from './style';
 import Header from '../../../components/header/Header';
 import Table from '../../../components/Table/Table';
+import { fetchAssetsThunk } from '../../../redux/actions';
 
 export default function Acoes() {
   const { allAssets, userAssets } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAssetsThunk());
+  }, []);
 
   return (
     <C.Wrapper>

@@ -7,7 +7,7 @@ import * as C from './style';
 import TradingTable from '../../components/TradingTable/TradingTable';
 import './negociar.css';
 import {
-  buyAsset, fetchAssetsThunk, sellAsset, subtractMoney, sumMoney,
+  buyAsset, sellAsset, subtractMoney, sumMoney,
 } from '../../redux/actions';
 import Modal from '../../components/Modal/Modal';
 
@@ -21,12 +21,6 @@ export default function Negociar() {
   const [isModalVisible, setModalVisibility] = useState(false);
   const [isTransactionNotOk, setIsTransactionNotOk] = useState(false);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!allAssets.length) {
-      dispatch(fetchAssetsThunk());
-    }
-  }, []);
 
   const asset = allAssets.length && allAssets.find((e) => e.codAtivo === clickedAsset);
 
