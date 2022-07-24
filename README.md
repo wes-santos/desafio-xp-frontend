@@ -7,6 +7,8 @@
 
 <p>Dessa forma, o aplicativo tem as seguintes páginas: login, ações disponíveis, compra e venda de ações, página de conta com opção de depósito ou retirada de dinheiro e uma página inicial simples.</p>
 
+<p>As ações que são exibidas na tabela vêm de uma <a href="https://github.com/wes-santos/desafio-xp-backend" target="_blank">API super simples</a> que criei apenas para ter uma base de dados para a aplicação. Em geral, ela foi criada com Sequelize seguindo a arquitetura MSC e seu deploy foi realizado no <a href="https://desafio-xp-backend.herokuapp.com/" target="_blank">Heroku</a> para possibilitar a integração com o Front. O banco de dados está armazenado no Supabase, uma vez que utilizei o Sequelize com dialeto Postgres.
+
 <h2>Tabela de conteúdos</h2>
 <ul>
   <li><a href="#1">Como a aplicação funciona?</a></li>
