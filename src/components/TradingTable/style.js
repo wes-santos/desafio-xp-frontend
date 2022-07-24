@@ -18,4 +18,10 @@ export default styled.div`
       font-size: 12px;
     }
   }
+
+  @media (min-width: 390px) {
+    table th {
+      font-size: 16px;
+    }
+  }
 `;

@@ -84,6 +84,20 @@ const Container = styled.section`
       width: 15px;
     }
   }
+
+  @media (min-width: 390px) {
+    nav ul li a {
+      font-size: 20px;
+    }
+
+    nav ul li button {
+      font-size: 20px;
+    }
+
+    img {
+      height: 40px;
+    }
+  }
 `;
 
 export default Container;

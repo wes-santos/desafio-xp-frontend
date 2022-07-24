@@ -5,9 +5,7 @@ export const ModalContainer = styled.div`
   display: flex;
   backdrop-filter: blur(3px);
   background-color: rgba(0, 0, 0, 0.8);
-  /* flex-direction: column; */
   height: 87vh;
-  /* justify-content: center; */
   position: absolute;
   width: 100%;
 `;
@@ -50,6 +48,10 @@ export const ModalMessage = styled.p`
   justify-content: center;
   margin-top: 30px;
   text-align: center;
+
+  @media (min-width: 390px) {
+    font-size: 20px;
+  }
 `;
 
 export const ModalFix = styled.div`

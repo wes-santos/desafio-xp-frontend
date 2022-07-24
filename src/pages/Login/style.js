@@ -35,6 +35,12 @@ export const Label = styled.label`
       outline: none;
     }
   }
+
+  @media (min-width: 390px) {
+    p {
+      font-size: 18px;
+    }
+  }
 `;
 
 export const Button = styled.button`

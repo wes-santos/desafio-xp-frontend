@@ -79,4 +79,14 @@ export const SaldoContainer = styled.div`
     font-size: 22px;
     font-weight: 600;
   }
+
+  @media (min-width: 390px) {
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 26px;
+    }
+  }
 `;

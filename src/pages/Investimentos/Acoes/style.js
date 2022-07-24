@@ -18,6 +18,12 @@ export const Container = styled.div`
   & section {
     margin: 30px 0; 
   }
+
+  @media (min-width: 390px) {
+    h2 {
+      font-size: 26px;
+    }
+  }
 `;
 
 export const Wrapper = styled.div`

@@ -16,6 +16,10 @@ export const PrimaryCard = styled.button`
   h3 {
     color: #1c1c1c!important;
   }
+
+  @media (min-width: 390px) {
+    height: 140px;
+  }
 `;
 
 export const SecondaryCard = styled.button`
@@ -46,6 +50,10 @@ export const SecondaryCard = styled.button`
     border-color: rgb(224, 173, 0);
     color: #1c1c1c;
   }
+
+  @media (min-width: 390px) {
+    height: 140px;
+  }
 `;
 
 export const Container = styled.div`
@@ -66,4 +74,8 @@ export const Container = styled.div`
 export const CardTitle = styled.h3`
   color: white;
   font-size: 16px;
+
+  @media (min-width: 390px) {
+    font-size: 20px;
+  }
 `;

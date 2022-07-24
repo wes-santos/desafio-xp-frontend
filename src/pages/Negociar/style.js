@@ -51,6 +51,12 @@ export const MainContainer = styled.div`
     padding: 4px 6px;
     width: 100%;
   }
+
+  @media (min-width: 390px) {
+    form label {
+      font-size: 13px;
+    }
+  }
 `;
 
 export const PageWrapper = styled.div`

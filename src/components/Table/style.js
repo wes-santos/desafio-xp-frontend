@@ -24,6 +24,20 @@ export const Table = styled.table`
     height: 40px;
     padding: 2px;
   }
+
+  @media (min-width: 390px) {
+    th {
+      font-size: 16px;
+    }
+
+    td {
+      font-size: 18px;
+    }
+
+    td img {
+      height: 50px;
+    }
+  }
 `;
 
 export const PriceContainer = styled.div`

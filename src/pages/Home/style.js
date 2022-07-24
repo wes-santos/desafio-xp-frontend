@@ -21,9 +21,19 @@ export const Container = styled.div`
     font-size: 32px;
     padding: 20px 20px 0;
   }
+
+  @media (min-width: 390px) {
+    h2 {
+      font-size: 36px;
+    }
+  }
 `;
 
 export const WelcomeText = styled.p`
   font-size: 12px;
   padding: 4px 20px 0;
+  
+  @media (min-width: 390px) {
+    font-size: 16px;
+  }
 `;

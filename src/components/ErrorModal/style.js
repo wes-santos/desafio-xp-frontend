@@ -39,6 +39,12 @@ export const ModalButtonsContainer = styled.div`
       background-color: rgb(224, 173, 0);
     }
   }
+
+  @media (min-width: 390px) {
+    button {
+      font-size: 20px;
+    }
+  }
 `;
 
 export const ModalMessage = styled.p`
@@ -50,6 +56,10 @@ export const ModalMessage = styled.p`
   margin-top: 30px;
   padding: 8px;
   text-align: center;
+
+  @media (min-width: 390px) {
+    font-size: 26px;
+  }
 `;
 
 export const ModalFix = styled.div`
