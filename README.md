@@ -109,7 +109,9 @@ npm run test:coverage
 
 
 ## Referências
-Durante o desenvolvimento do projeto, naturalmente algumas dificuldades foram surgindo, principalmente para execução de ações que ainda não sabia claramente como fazer. Por isso, para algumas features, foram consumidos os seguintes conteúdos:
+Durante o desenvolvimento do projeto, naturalmente algumas dificuldades foram surgindo, principalmente para execução de ações que ainda não sabia claramente como fazer.
+
+Por isso, para algumas features, foram consumidos os seguintes conteúdos:
 - [Criação de uma sidebar](https://www.youtube.com/watch?v=Sl_tsr2gEhE);
 - [Utilização do redux com hooks](https://www.youtube.com/watch?v=7L7MhxjI4PE);
 - [Configuração do configureStore](https://www.youtube.com/watch?v=GpAAQnrxiGQ);
