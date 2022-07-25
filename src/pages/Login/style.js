@@ -34,6 +34,7 @@ export const Label = styled.label`
       color: white;
       outline: none;
     }
+
   }
 
   @media (min-width: 390px) {
@@ -47,7 +48,6 @@ export const Button = styled.button`
   background-color: #ffc709;
   border: none;
   font-weight: bold;
-  margin-top: 50px;
   padding: 10px;
   transition: all 0.2s ease-in-out;
   width: 100%;

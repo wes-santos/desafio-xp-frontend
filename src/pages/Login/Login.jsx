@@ -58,7 +58,7 @@ export default function Login() {
         <p>E-mail</p>
         <input id="emailInput" type="email" onChange={validateEmail} value={emailValue} />
       </C.Label>
-      <C.Label htmlFor="passwordInput">
+      <C.Label htmlFor="passwordInput" style={{ marginBottom: '50px' }}>
         <p>Senha</p>
         <input id="passwordInput" type="password" onChange={validatePassword} />
       </C.Label>
