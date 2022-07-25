@@ -145,13 +145,21 @@ describe('Verifica se', () => {
     expect(totalInputEl).toHaveValue(price);
     expect(quantityInputEl).toHaveValue(1);
     expect(priceInputEl).toHaveValue(price);
+
+    const modalTextEl = screen.getByText('Transação realizada com sucesso!');
+
+    expect(modalTextEl).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Página de ações' })).toBeInTheDocument();
+
+    userEvent.click(screen.getAllByRole('button', { name: 'Voltar' })[1]);
+
+    expect(modalTextEl).not.toBeInTheDocument();
   });
 
   it('É possível vender uma ação com sucesso', () => {
     renderWithRouterAndRedux(<App />, '/negociar', initialState);
     const quantityInputEl = screen.getByTestId('quantity-input');
     const totalInputEl = screen.getByLabelText('Valor estimado');
-    // const priceInputEl = screen.getByLabelText('Preço de compra');
     const priceEl = screen.getByTestId('asset-price');
     const userBalanceEl = screen.getByTestId('user-balance');
     const confirmButtonEl = screen.getByRole('button', { name: 'Confirmar' });
@@ -182,6 +190,13 @@ describe('Verifica se', () => {
 
     expect(userBalanceEl.innerHTML).toEqual('999,99');
     expect(assetQuantityEl.innerHTML).toEqual('0');
+
+    expect(screen.getByText('Transação realizada com sucesso!')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Página de ações' })).toBeInTheDocument();
+
+    userEvent.click(screen.getByRole('button', { name: 'Página de ações' }));
+
+    expect(screen.getByRole('heading', { level: 2, name: 'Minhas ações' })).toBeInTheDocument();
   });
 
   it('Não é possível comprar uma ação quando o dinheiro em conta é insuficiente', () => {

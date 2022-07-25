@@ -45,6 +45,15 @@ describe('Verifica se', () => {
     userEvent.click(confirmButtonEl);
 
     expect(userBalance.innerHTML).toBe(`R$ ${stateUserBalance + 10}`);
+
+    const modalTextEl = screen.getByText('Transação realizada com sucesso!');
+
+    expect(modalTextEl).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Página de ações' })).toBeInTheDocument();
+
+    userEvent.click(screen.getAllByRole('button', { name: 'Voltar' })[1]);
+
+    expect(modalTextEl).not.toBeInTheDocument();
   });
 
   it('É possível retirar dinheiro da conta', () => {
@@ -70,6 +79,13 @@ describe('Verifica se', () => {
     userEvent.click(confirmButtonEl);
 
     expect(userBalance.innerHTML).toBe(`R$ ${stateUserBalance - 10}`);
+
+    expect(screen.getByText('Transação realizada com sucesso!')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Página de ações' })).toBeInTheDocument();
+
+    userEvent.click(screen.getByRole('button', { name: 'Página de ações' }));
+
+    expect(screen.getByRole('heading', { level: 2, name: 'Minhas ações' })).toBeInTheDocument();
   });
 
   it('Não é possível retirar mais dinheiro do que o disponível na conta', () => {
