@@ -10,6 +10,7 @@ import {
   buyAsset, sellAsset, subtractMoney, sumMoney,
 } from '../../redux/actions';
 import Modal from '../../components/Modal/Modal';
+import SuccessModal from '../../components/SuccessModal';
 
 export default function Negociar() {
   const {
@@ -18,8 +19,9 @@ export default function Negociar() {
   const [qty, setQty] = useState('1');
   const [isBuyClicked, setBuyClick] = useState(true);
   const [isSellClicked, setSellClick] = useState(false);
-  const [isModalVisible, setModalVisibility] = useState(false);
+  const [isErrorModalVisible, setErrorModalVisibility] = useState(false);
   const [isTransactionNotOk, setIsTransactionNotOk] = useState(false);
+  const [isSucessModalVisible, setIsSucessModalVisible] = useState(false);
   const dispatch = useDispatch();
 
   const asset = allAssets.length && allAssets.find((e) => e.codAtivo === clickedAsset);
@@ -66,14 +68,15 @@ export default function Negociar() {
   // eslint-disable-next-line consistent-return
   const handleBuyOrSellAsset = () => {
     if (balance - buyAmount < 0) {
-      return setModalVisibility(true);
+      return setErrorModalVisibility(true);
     }
 
     if (isBuyClicked) {
       dispatch(buyAsset(asset, qty));
       setQty(1);
       dispatch(subtractMoney(buyAmount));
-      return setBuyAmount(asset.valor.toString());
+      setBuyAmount(asset.valor.toString());
+      return setIsSucessModalVisible(true);
     }
 
     if (isSellClicked) {
@@ -82,7 +85,8 @@ export default function Negociar() {
           dispatch(sellAsset(asset, qty));
           setQty(1);
           dispatch(sumMoney(buyAmount));
-          return setBuyAmount(asset.valor.toString());
+          setBuyAmount(asset.valor.toString());
+          return setIsSucessModalVisible(true);
         }
         throw new Error();
       } catch (error) {
@@ -99,8 +103,9 @@ export default function Negociar() {
     ifFetched ? <h1>Carregando...</h1> : (
       <C.Section>
         {Header()}
-        {isModalVisible && Modal(setModalVisibility)}
+        {isErrorModalVisible && Modal(setErrorModalVisibility)}
         {isTransactionNotOk && Modal(setIsTransactionNotOk, 'Você não tem ações suficientes para realizar a transação :(')}
+        {isSucessModalVisible && SuccessModal(setIsSucessModalVisible)}
         <C.PageWrapper>
           <C.MainContainer>
             <C.Title>Comprar/Vender Ação</C.Title>
