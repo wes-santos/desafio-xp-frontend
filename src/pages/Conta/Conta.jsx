@@ -6,6 +6,7 @@ import Header from '../../components/header/Header';
 import './conta.css';
 import { addMoney, subtractMoney } from '../../redux/actions';
 import Modal from '../../components/Modal/Modal';
+import SuccessModal from '../../components/SuccessModal';
 
 export default function Conta() {
   const globalState = useSelector((state) => state.user);
@@ -15,8 +16,9 @@ export default function Conta() {
   const [isWithdrawClicked, setWithdrawClicked] = useState(false);
   const [isDepositClicked, setDepositClick] = useState(true);
   const [money, setMoney] = useState('');
-  const [isModalVisible, setModalVisibility] = useState(false);
+  const [isErrorModalVisible, setErrorModalVisibility] = useState(false);
   const [isValueValid, setIsValueValid] = useState(false);
+  const [isSucessModalVisible, setIsSucessModalVisible] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -42,18 +44,20 @@ export default function Conta() {
 
       dispatch(isDepositClicked ? addMoney(money) : subtractMoney(money));
       inputRef.current.placeholder = 'Informe o valor';
-      return setMoney('');
+      setMoney('');
+      return setIsSucessModalVisible(true);
     } catch (err) {
-      setModalVisibility(true);
-      return Modal(setModalVisibility);
+      setErrorModalVisibility(true);
+      return Modal(setErrorModalVisibility);
     }
   };
 
   return (
     <C.Section>
       {Header()}
-      {isModalVisible && Modal(setModalVisibility)}
+      {isErrorModalVisible && Modal(setErrorModalVisibility)}
       {isValueValid && Modal(setIsValueValid, 'O valor digitado precisa ser maior do que zero')}
+      {isSucessModalVisible && SuccessModal(setIsSucessModalVisible)}
       <C.SaldoContainer>
         <h2>Valor disponível </h2>
         <p data-testid="user-balance">{`R$ ${globalState.balance}`}</p>
