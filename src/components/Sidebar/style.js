@@ -53,7 +53,7 @@ const Container = styled.section`
       justify-content: space-between;
       text-transform: uppercase;
       list-style: none;
-      margin: 20px 0;
+      margin: 30px 0;
     }
 
     li button {
@@ -92,6 +92,10 @@ const Container = styled.section`
 
     nav ul li button {
       font-size: 20px;
+    }
+
+    nav ul li {
+      margin: 40px 0;
     }
 
     img {
