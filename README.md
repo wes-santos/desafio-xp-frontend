@@ -1,9 +1,7 @@
 <h1>Desafio de Mobile/Front-end XP Inc.</h1>
-<p>Este projeto foi desenvolvido como um desafio técnico para o processo seletivo da <a href="https://xpinc.com" target="_blank">XP Inc.</a> feito em parceria com a <a href="https://betrybe.com" target="_blank">Trybe</a> para o cargo de Software Engineer I como Desenvolvedor Mobile.</p>
+<p>Este projeto foi feito com o conceito de Mobile First e simula um aplicativo de investimento em ações com algumas funcionalidades de uma conta digital</p>
 
-<p>Nessa lógica, em linhas gerais, ele consiste em um aplicativo desenvolvido com o conceito de Mobile First que simula o investimento em ações com algumas funcionalidades de uma conta digital.</p>
-
-<p>Somado a isso, seu design foi inspirado no aplicativo de investimentos da própria XP, bem como a escolha de cores e o uso de elementos próprios da empresa, como a própria logo.</p>
+<p>Para desenvolvê-lo, me inspirei no design do aplicativo da XP Investimentos, desde a escolha de cores e o uso de elementos próprios da empresa até a própria logo da empresa.</p>
 
 <p>Dessa forma, o aplicativo tem as seguintes páginas: login, ações disponíveis, compra e venda de ações, página de conta com opção de depósito ou retirada de dinheiro e uma página inicial simples.</p>
 
